@@ -10,5 +10,7 @@ SurfRater is a .NET-based application designed to help surfers rate and review s
 
 ## 🛠 Plan on Long Run
 
-- - Add a .NetMaui frontend (Android/iOS/Windows)
+- Add a .NetMaui frontend (Android/iOS/Windows)
+- Release it on google playstore and apple store
 - User authentication and profiles
+- Make a ton of money from it and help ocean wild life from it
