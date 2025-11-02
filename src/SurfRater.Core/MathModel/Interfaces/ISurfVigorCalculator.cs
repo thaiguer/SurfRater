@@ -2,7 +2,7 @@
 
 namespace SurfRater.Core.MathModel.Interfaces;
 
-public interface ISurfVigorCalculator
+interface ISurfConditonsCalculator
 {
     WeatherData WeatherData { get; set; }
     double Result { get; }

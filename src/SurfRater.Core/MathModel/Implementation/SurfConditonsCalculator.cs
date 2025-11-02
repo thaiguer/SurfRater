@@ -1,12 +1,18 @@
-﻿using SurfRater.Core.Data.ValueObjects;
+﻿using SurfRater.Core.Data.Interfaces;
+using SurfRater.Core.Data.ValueObjects;
 using SurfRater.Core.MathModel.Interfaces;
 
 namespace SurfRater.Core.MathModel.Implementation;
 
-public class BasicSurfVigorCalculator : ISurfVigorCalculator
+public class SurfConditonsCalculator : ISurfConditonsCalculator
 {
     public WeatherData WeatherData { get; set; }
     public double Result { get; private set; }
+
+    public SurfConditonsCalculator(WeatherData weatherData)
+    {
+        WeatherData = weatherData;
+    }
 
     public void Calculate()
     {
