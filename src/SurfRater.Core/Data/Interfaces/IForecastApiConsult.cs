@@ -2,7 +2,7 @@
 
 namespace SurfRater.Core.Data.Interfaces;
 
-interface IForecastApiConsult
+public interface IForecastApiConsult
 {
     Coordinate Coordinate { get; set; }
 }

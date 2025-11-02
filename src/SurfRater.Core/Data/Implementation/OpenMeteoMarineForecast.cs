@@ -14,11 +14,6 @@ public class OpenMeteoMarineForecast : IMarineForecast
 
     public Coordinate Coordinate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-    public async Task GetDataAsync()
-    {
-        var forecast = await GetForecastAsync(-28.48633789882946, -48.75997833457601);
-    }
-
     public async Task<MarineForecastResponse> GetForecastAsync(double latitude, double longitude)
     {
         string url = $"https://marine-api.open-meteo.com/v1/marine?latitude={latitude}&longitude={longitude}&hourly=swell_wave_height,swell_wave_direction,wave_height,wave_direction,wave_period,swell_wave_period,swell_wave_peak_period,wind_wave_direction,wind_wave_height&forecast_days=3";

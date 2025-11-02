@@ -1,6 +1,8 @@
-﻿namespace SurfRater.Core.Data.Interfaces;
+﻿using SurfRater.Core.Data.Implementation.OpenMeteo;
 
-interface IMarineForecast : IForecastApiConsult
+namespace SurfRater.Core.Data.Interfaces;
+
+public interface IMarineForecast : IForecastApiConsult
 {
-
+    public Task<MarineForecastResponse> GetForecastAsync(double latitude, double longitude);
 }
