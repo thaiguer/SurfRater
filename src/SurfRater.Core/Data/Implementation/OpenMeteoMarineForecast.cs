@@ -14,7 +14,7 @@ public class OpenMeteoMarineForecast : IMarineForecast
 
     public Coordinate Coordinate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-    public async Task<MarineForecastResponse> GetForecastAsync(double latitude, double longitude)
+    public async Task<MarineWeatherResponse> GetForecastAsync(double latitude, double longitude)
     {
         string url = $"https://marine-api.open-meteo.com/v1/marine?latitude={latitude}&longitude={longitude}&hourly=swell_wave_height,swell_wave_direction,wave_height,wave_direction,wave_period,swell_wave_period,swell_wave_peak_period,wind_wave_direction,wind_wave_height&forecast_days=3";
 
@@ -22,7 +22,7 @@ public class OpenMeteoMarineForecast : IMarineForecast
         response.EnsureSuccessStatusCode();
 
         var json = await response.Content.ReadAsStringAsync();
-        var forecast = JsonSerializer.Deserialize<MarineForecastResponse>(json);
+        var forecast = JsonSerializer.Deserialize<MarineWeatherResponse>(json);
 
         return forecast;
     }
