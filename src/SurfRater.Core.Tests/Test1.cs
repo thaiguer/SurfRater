@@ -22,7 +22,7 @@ public sealed class Test1
     [TestMethod]
     public async Task RequisitionAsync()
     {
-        var url = "https://marine-api.open-meteo.com/v1/marine?latitude=54.544587&longitude=10.227487&current=wave_height,wave_direction,wind_wave_direction";
+        var url = "https://marine-api.open-meteo.com/v1/marine?latitude=-28.48262&longitude=-48.781502&hourly=wave_height,wave_direction,wave_period&current=wave_height,wave_direction,wind_wave_direction&timezone=America%2FSao_Paulo";
 
         using var httpClient = new HttpClient();
         var response = await httpClient.GetStringAsync(url);
