@@ -13,9 +13,40 @@ public class SurfConditonsCalculator : ISurfConditonsCalculator
         WeatherData = weatherData;
     }
 
-    public void Calculate()
+    public string Calculate(List<SurfParameter> surfParameters)
     {
-        //if (WeatherData == null)
-        //Result = WeatherData.WindSpeed * 0.8 + WeatherData.WaveHeight * 1.2;
+        double result = 1;
+        
+        foreach(var surfParameter in surfParameters)
+        {
+            result = ((surfParameter.ForecastValue / surfParameter.IdealValue) + result) / 2;
+        }
+
+        string condition;
+
+        switch (result)
+        {
+            case > 1.5:
+                condition = "tá muito alto";
+                break;
+            case > 1.2:
+                condition = "tá pra onda boa";
+                break;
+            case > 1.0:
+                condition = "tá picaaaaaaaaaaaaaa";
+                break;
+            case > 0.75:
+                condition = "tá quase bom";
+                break;
+            case > 0.5:
+                condition = "tá normal";
+                break;
+            default:
+                condition = "tá fraco";
+                break;
+        }
+
+        return condition;
     }
+
 }

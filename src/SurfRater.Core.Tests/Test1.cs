@@ -1,48 +1,30 @@
 ﻿using System.Text.Json;
+using SurfRater.Core.CoordinateFilters;
 using SurfRater.Core.Data.Implementation.OpenMeteo;
 using SurfRater.Core.Data.ValueObjects;
+using SurfRater.Core.MathModel.Implementation;
 
 namespace SurfRater.Core.Tests;
 
 [TestClass]
 public sealed class Test1
 {
-    private static List<Coordinate> GerarMalhaDeCoordenadas(
-        double latInicio, double latFim, double lonInicio, double lonFim, double passo)
+    [TestMethod]
+    public void TestarOCalculo()
     {
-        var coordenadas = new List<Coordinate>();
+        var surfParameters = new List<SurfParameter>();
+        surfParameters.Add(new SurfParameter("Swell", 15, 13));
+        surfParameters.Add(new SurfParameter("Onda", 15, 13));
+        surfParameters.Add(new SurfParameter("Vento", 10, 6));
+        surfParameters.Add(new SurfParameter("Vibe", 45, 48));
 
-        for (double lat = latInicio; lat <= latFim; lat += passo)
-        {
-            for (double lon = lonInicio; lon <= lonFim; lon += passo)
-            {
-                coordenadas.Add(new Coordinate(Math.Round(lat, 6), Math.Round(lon, 6)));
-            }
-        }
+        var surfConditonsCalculator = new SurfConditonsCalculator(new WeatherData());
+        var result = surfConditonsCalculator.Calculate(surfParameters);
 
-        Console.WriteLine($"Malha gerada com {coordenadas.Count} coordenadas.");
-        return coordenadas;
+        Assert.IsTrue(result.Equals("tá picaaaaaaaaaaaaaa"));
     }
-
-    private static bool EstaNaMalha(double latitude, double longitude)
-    {
-        var malha = GerarMalhaDeCoordenadas(
-            latInicio: -29.3,
-            latFim: -27.6,
-            lonInicio: -49.7,
-            lonFim: -48.5,
-            passo: 0.05
-        );
-
-        bool resultado = malha.Any(coord =>
-            Math.Abs(coord.Latitude - latitude) < 0.025 &&
-            Math.Abs(coord.Longitude - longitude) < 0.025);
-
-        Console.WriteLine($"Validação da coordenada ({latitude}, {longitude}): {(resultado ? "Válida" : "Inválida")}");
-        return resultado;
-    }
-
-
+    
+    
     [TestMethod]
     public async Task RequisitionAsync()
     {
@@ -52,7 +34,9 @@ public sealed class Test1
         Console.WriteLine("Iniciando teste de requisição...");
         Console.WriteLine($"Coordenada usada: Latitude = {latitude}, Longitude = {longitude}");
 
-        if (!EstaNaMalha(latitude, longitude))
+        var coordinatesFilterService = new CoordinatesFilterService();
+
+        if (!coordinatesFilterService.EstaNaMalha(latitude, longitude))
         {
             Console.WriteLine("Coordenada fora da faixa válida. Encerrando teste.");
             Assert.Inconclusive("Coordenada fora da faixa entre Torres e Florianópolis.");
