@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Plugin.LocalNotification;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace SurfRater.Maui
@@ -13,6 +14,7 @@ namespace SurfRater.Maui
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
                 .ConfigureSyncfusionToolkit()
+                .UseLocalNotification()
                 .ConfigureMauiHandlers(handlers =>
                 {
 #if IOS || MACCATALYST
