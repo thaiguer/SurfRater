@@ -1,21 +1,22 @@
 ﻿using System.Text.Json;
 using SurfRater.Core.Data.Implementation.OpenMeteo;
+using SurfRater.Core.Data.ValueObjects;
 
 namespace SurfRater.Core.Tests;
 
 [TestClass]
 public sealed class Test1
 {
-    private static List<(double Latitude, double Longitude)> GerarMalhaDeCoordenadas(
+    private static List<Coordinate> GerarMalhaDeCoordenadas(
         double latInicio, double latFim, double lonInicio, double lonFim, double passo)
     {
-        var coordenadas = new List<(double, double)>();
+        var coordenadas = new List<Coordinate>();
 
         for (double lat = latInicio; lat <= latFim; lat += passo)
         {
             for (double lon = lonInicio; lon <= lonFim; lon += passo)
             {
-                coordenadas.Add((Math.Round(lat, 6), Math.Round(lon, 6)));
+                coordenadas.Add(new Coordinate(Math.Round(lat, 6), Math.Round(lon, 6)));
             }
         }
 
