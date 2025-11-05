@@ -18,20 +18,20 @@ public class WeatherData
     /// <summary>
     /// Wind speed, typically in km/h or m/s.
     /// </summary>
-    public WeigthedObject<double> WindSpeed { get; set; }
+    public WeigthedObject<double> WindSpeed { get; set; } // velocidade (nós)
 
-    /// <summary>
-    /// Wave height in meters.
-    /// </summary>
-    public WeigthedObject<double> WaveHeight { get; set; }
+    public WeigthedObject<double> Rajada { get; set; }//rajada (nós)
+
+    public WeigthedObject<double> WindDirection { get; set; }//direção do vento (0-360)
+    public WeigthedObject<double> WaveHeight { get; set; } //ondulação (m)
+
+    public WeigthedObject<double> WavePeriod { get; set; } //periodo da vaga (s)
+    public WeigthedObject<double> WaveDirection { get; set; } //direção da vaga (0-360)
+
+    public WeigthedObject<double> AirTemperature { get; set; } //temperatura (ºC)
 
     /// <summary>
     /// Water temperature in degrees Celsius.
     /// </summary>
     public WeigthedObject<double> WaterTemperature { get; set; }
-
-    /// <summary>
-    /// Air temperature in degrees Celsius.
-    /// </summary>
-    public WeigthedObject<double> AirTemperature { get; set; }
 }
