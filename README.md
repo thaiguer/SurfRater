@@ -7,6 +7,7 @@ SurfRater is a .NET-based application designed to help surfers rate and review s
 - Math Model Development and Test
 - Integrate surf condition APIs
 - Add a .NetMaui frontend (Android/Windows)
+- Integrate coordinate validation APIs (Google Maps/OpenStreetMap)
 
 ## 🛠 Plan on Long Run
 
