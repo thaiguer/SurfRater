@@ -10,6 +10,5 @@ public class MarineWeatherResponse
     public string Timezone_abbreviation { get; set; }
     public double Elevation { get; set; }
     public Current_Units Current_Units { get; set; }
-    public List<double> wave_height { get; set; }
-    //public MarineCurrentData Current { get; set; }
+    public Current Current { get; set; }
 }
