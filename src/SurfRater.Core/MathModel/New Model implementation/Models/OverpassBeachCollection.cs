@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
 {
@@ -17,20 +18,20 @@ namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
 
     public class OverpassBeachProperties
     {
-        // Campos básicos
         public string Name { get; set; }
 
-        // Campos multilíngues
+        [JsonPropertyName("name:en")]
         public string Name_en { get; set; }
+
+        [JsonPropertyName("name:pt")]
         public string Name_pt { get; set; }
 
-        // Campos extras do OSM
         public string Natural { get; set; }
         public string Type { get; set; }
         public string Wikidata { get; set; }
         public string Wikipedia { get; set; }
 
-        // Id interno do OSM
+        [JsonPropertyName("@id")]
         public string Id { get; set; }
     }
 
