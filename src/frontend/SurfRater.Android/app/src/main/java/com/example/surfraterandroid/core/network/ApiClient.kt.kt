@@ -1,4 +1,4 @@
-object `ApiClient.kt` {
+/*object `ApiClient.kt` {
     val service: WeatherApiService by lazy {
         Retrofit.Builder()
             .baseUrl("https://api.example.com/")
@@ -6,4 +6,4 @@ object `ApiClient.kt` {
             .build()
             .create(WeatherApiService::class.java)
     }
-}
+}*/

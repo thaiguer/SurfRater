@@ -1,7 +1,7 @@
-package core.domain
+/*package core.domain
 
-class `WeatherUseCase.kt`(private val repository: `WeatherRepository.kt`) {
+class WeatherUseCase(private val repository: WeatherRepository) {
     suspend fun getConvertedTemperature(): Double {
         return repository.fetchTemperature()
     }
-}
+}*/

@@ -1,8 +1,10 @@
-package core.data
+/*package core.data
 
-class `WeatherRepository.kt` {
+class WeatherRepository {
     suspend fun fetchTemperature(): Double {
         val response = ApiClient.service.getWeather()
         return response.temp * 1.8 + 32 // Convert Celsius to Fahrenheit
     }
 }
+
+ */
