@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\dev\\SurfRater\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|src{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|C:\\dev\\SurfRater\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|src{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|c:\\dev\\surfrater\\src\\surfrater.core\\data\\implementation\\openmeteomarineforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|solutionrelative:src\\surfrater.core\\data\\implementation\\openmeteomarineforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|c:\\dev\\surfrater\\src\\surfrater.core\\data\\valueobjects\\coordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|solutionrelative:src\\surfrater.core\\data\\valueobjects\\coordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|c:\\dev\\surfrater\\src\\surfrater.core\\data\\valueobjects\\weatherdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|solutionrelative:src\\surfrater.core\\data\\valueobjects\\weatherdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|c:\\dev\\surfrater\\src\\surfrater.core\\data\\valueobjects\\weigthedobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FE326A3-4087-41D4-8B62-868E154625B1}|src\\SurfRater.Core\\SurfRater.Core.csproj|solutionrelative:src\\surfrater.core\\data\\valueobjects\\weigthedobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAA83091-0A6B-41AC-81FA-44730CE86E0F}|src\\SurfRater.Core.Tests\\SurfRater.Core.Tests.csproj|c:\\dev\\surfrater\\src\\surfrater.core.tests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAA83091-0A6B-41AC-81FA-44730CE86E0F}|src\\SurfRater.Core.Tests\\SurfRater.Core.Tests.csproj|solutionrelative:src\\surfrater.core.tests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\dev\\SurfRater\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\dev\\SurfRater\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-07T02:27:31.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OpenMeteoMarineForecast.cs",
+              "DocumentMoniker": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\Implementation\\OpenMeteoMarineForecast.cs",
+              "RelativeDocumentMoniker": "src\\SurfRater.Core\\Data\\Implementation\\OpenMeteoMarineForecast.cs",
+              "ToolTip": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\Implementation\\OpenMeteoMarineForecast.cs",
+              "RelativeToolTip": "src\\SurfRater.Core\\Data\\Implementation\\OpenMeteoMarineForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T22:45:24.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Coordinate.cs",
+              "DocumentMoniker": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\ValueObjects\\Coordinate.cs",
+              "RelativeDocumentMoniker": "src\\SurfRater.Core\\Data\\ValueObjects\\Coordinate.cs",
+              "ToolTip": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\ValueObjects\\Coordinate.cs",
+              "RelativeToolTip": "src\\SurfRater.Core\\Data\\ValueObjects\\Coordinate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T22:45:03.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeigthedObject.cs",
+              "DocumentMoniker": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\ValueObjects\\WeigthedObject.cs",
+              "RelativeDocumentMoniker": "src\\SurfRater.Core\\Data\\ValueObjects\\WeigthedObject.cs",
+              "ToolTip": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\ValueObjects\\WeigthedObject.cs",
+              "RelativeToolTip": "src\\SurfRater.Core\\Data\\ValueObjects\\WeigthedObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T22:45:00.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherData.cs",
+              "DocumentMoniker": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\ValueObjects\\WeatherData.cs",
+              "RelativeDocumentMoniker": "src\\SurfRater.Core\\Data\\ValueObjects\\WeatherData.cs",
+              "ToolTip": "C:\\dev\\SurfRater\\src\\SurfRater.Core\\Data\\ValueObjects\\WeatherData.cs",
+              "RelativeToolTip": "src\\SurfRater.Core\\Data\\ValueObjects\\WeatherData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T22:36:25.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Test1.cs",
+              "DocumentMoniker": "C:\\dev\\SurfRater\\src\\SurfRater.Core.Tests\\Test1.cs",
+              "RelativeDocumentMoniker": "src\\SurfRater.Core.Tests\\Test1.cs",
+              "ToolTip": "C:\\dev\\SurfRater\\src\\SurfRater.Core.Tests\\Test1.cs",
+              "RelativeToolTip": "src\\SurfRater.Core.Tests\\Test1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T21:41:03.231Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

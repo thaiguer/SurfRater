@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfRater.Core", "src\SurfRater.Core\SurfRater.Core.csproj", "{2FE326A3-4087-41D4-8B62-868E154625B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfRater.Core", "SurfRater.Core\SurfRater.Core.csproj", "{2FE326A3-4087-41D4-8B62-868E154625B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfRater.Core.Tests", "src\SurfRater.Core.Tests\SurfRater.Core.Tests.csproj", "{BAA83091-0A6B-41AC-81FA-44730CE86E0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfRater.Core.Tests", "SurfRater.Core.Tests\SurfRater.Core.Tests.csproj", "{BAA83091-0A6B-41AC-81FA-44730CE86E0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
