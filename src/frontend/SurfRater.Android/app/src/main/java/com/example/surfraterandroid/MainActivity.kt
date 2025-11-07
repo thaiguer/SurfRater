@@ -123,12 +123,30 @@ class MainActivity : ComponentActivity() {
                 contentDescription = result.toString()
             )
             Spacer(modifier = Modifier.height(16.dp))
+
             Button(onClick = {
                 result = (1..6).random()
                 showNotification() // This triggers the notification
             }) {
                 Text(stringResource(R.string.roll))
             }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // 🌡️ Weather calculation button
+            /*Button(onClick = {
+                val useCase = `WeatherUseCase.kt`(`WeatherRepository.kt`())
+                GlobalScope.launch(Dispatchers.IO) {
+                    val temp = useCase.getConvertedTemperature()
+                    Log.d("TEMP_RESULT", "Converted temp: $temp")
+                    withContext(Dispatchers.Main) {
+                        showNotification("Weather Update", "Converted temperature: $temp")
+                    }
+                }
+            }) {
+                Text("Check Temperature")
+            }
+             */
         }
     }
 }
