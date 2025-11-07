@@ -33,6 +33,8 @@ import androidx.core.app.NotificationManagerCompat
 import android.Manifest
 import androidx.core.app.ActivityCompat
 import android.content.pm.PackageManager
+import com.example.surfraterandroid.core.data.Hello
+import java.io.Console
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +72,12 @@ class MainActivity : ComponentActivity() {
                 getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    private fun sayHello(){
+        val hello = Hello()
+        val message = hello.SayHi()
+        println(message);
     }
 
     private fun showNotification() {
@@ -133,20 +141,10 @@ class MainActivity : ComponentActivity() {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 🌡️ Weather calculation button
-            /*Button(onClick = {
-                val useCase = `WeatherUseCase.kt`(`WeatherRepository.kt`())
-                GlobalScope.launch(Dispatchers.IO) {
-                    val temp = useCase.getConvertedTemperature()
-                    Log.d("TEMP_RESULT", "Converted temp: $temp")
-                    withContext(Dispatchers.Main) {
-                        showNotification("Weather Update", "Converted temperature: $temp")
-                    }
-                }
-            }) {
-                Text("Check Temperature")
+            Button(onClick = { sayHello() })
+            {
+                Text(stringResource(R.string.roll))
             }
-             */
         }
     }
 }
