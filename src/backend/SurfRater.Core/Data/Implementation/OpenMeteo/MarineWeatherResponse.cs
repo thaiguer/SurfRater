@@ -1,14 +1,23 @@
-﻿namespace SurfRater.Core.Data.Implementation.OpenMeteo;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-public class MarineWeatherResponse
+namespace SurfRater.Core.Data.Implementation.OpenMeteo
 {
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
-    public double Generationtime_Ms { get; set; }
-    public int Utc_Off_setSeconds { get; set; }
-    public string Timezone { get; set; }
-    public string Timezone_abbreviation { get; set; }
-    public double Elevation { get; set; }
-    public Current_Units Current_Units { get; set; }
-    public Current Current { get; set; }
+    public class MarineWeatherResponse
+    {
+        [JsonPropertyName("hourly")]
+        public Hourly WeatherData { get; set; }
+    }
+
+    public class Hourly
+    {
+        [JsonPropertyName("wind_wave_direction")]
+        public List<double> WindWaveDirection { get; set; }
+
+        [JsonPropertyName("wave_height")]
+        public List<double> WaveHeight { get; set; }
+
+        [JsonPropertyName("wave_direction")]
+        public List<double> WaveDirection { get; set; }
+    }
 }
