@@ -9,6 +9,7 @@ namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
 
     public class HourlyData
     {
+        public List<string> Time { get; set; }
         public List<double> Wave_Height { get; set; }
         public List<int> Wave_Direction { get; set; }
         public List<double> Wave_Period { get; set; }

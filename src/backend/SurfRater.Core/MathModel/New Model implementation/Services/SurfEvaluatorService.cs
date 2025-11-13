@@ -1,18 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using SurfRater.Core.MathModel.New_Model_Implementation.Models;
 
 namespace SurfRater.Core.MathModel.New_Model_Implementation.Services
 {
+    public enum WindEffect
+    {
+        Offshore,
+        CrossShore,
+        Onshore
+    }
+
     public class SurfEvaluatorService : ISurfEvaluatorService
     {
         public SurfEvaluationResult Evaluate(WeatherData weatherData, SurfStyle style, BeachProfile beach)
         {
-            var waveHeight = weatherData.Current.Wave_Height;
-            var wavePeriod = weatherData.Current.Wave_Period;
-            var windDirection = weatherData.Current.Wind_Wave_Direction;
-            var swellDirection = weatherData.Current.Wave_Direction;
+            // Provide default values for nullable properties to avoid errors
+            var waveHeight = weatherData.Current.Wave_Height ?? 0;
+            var wavePeriod = weatherData.Current.Wave_Period ?? 0;
+            var windSpeed = weatherData.Current.Wind_Speed_10m ?? 0;
+            var windDirection = weatherData.Current.Wind_Direction_10m ?? 0;
+            var swellDirection = weatherData.Current.Wave_Direction ?? 0;
 
+            // Determine wind effect based on beach orientation
+            var windEffect = GetWindEffect(windDirection, beach.Orientation);
+
+            // Check if the primary swell direction is aligned with the beach
             bool swellIsAligned = beach.PreferredSwellDirections.Contains(swellDirection);
 
             SurfEvaluationResult result;
@@ -20,108 +33,119 @@ namespace SurfRater.Core.MathModel.New_Model_Implementation.Services
             switch (style)
             {
                 case SurfStyle.Bodyboard:
-                    result = EvaluateBodyboard(waveHeight, wavePeriod);
+                    result = EvaluateBodyboard(waveHeight, wavePeriod, windEffect, windSpeed);
                     break;
                 case SurfStyle.Longboard:
-                    result = EvaluateLongboard(waveHeight, wavePeriod);
+                    result = EvaluateLongboard(waveHeight, wavePeriod, windEffect, windSpeed);
                     break;
                 case SurfStyle.StandUpPaddle:
-                    result = EvaluateSUP(waveHeight, windDirection);
+                    result = EvaluateSUP(waveHeight, windSpeed);
                     break;
                 case SurfStyle.KiteSurf:
-                    result = EvaluateKite(windDirection, waveHeight);
+                    result = EvaluateKite(windEffect, windSpeed);
                     break;
                 case SurfStyle.Shortboard:
-                    result = EvaluateShortboard(waveHeight, wavePeriod);
+                    result = EvaluateShortboard(waveHeight, wavePeriod, windEffect, windSpeed);
                     break;
                 case SurfStyle.TowIn:
-                    result = EvaluateTowIn(waveHeight, wavePeriod, windDirection);
+                case SurfStyle.BigWave:
+                    result = EvaluateBigWave(waveHeight, wavePeriod, windEffect, windSpeed);
                     break;
                 case SurfStyle.Foil:
-                    result = EvaluateFoil(waveHeight, wavePeriod, windDirection);
-                    break;
-                case SurfStyle.BigWave:
-                    result = EvaluateBigWave(waveHeight, wavePeriod, windDirection);
+                    result = EvaluateFoil(waveHeight, wavePeriod, windEffect, windSpeed);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style), "Unsupported surf style.");
             }
 
+            // Downgrade rating if swell is not aligned
             if (!swellIsAligned)
             {
                 result.Rating = "Ruim";
-                result.Commentary += " (swell desalinhado com a praia)";
+                result.Commentary += " (Swell desalinhado)";
             }
 
             return result;
         }
 
-        // ---------------- MÉTODOS DE AVALIAÇÃO ----------------
-
-        private SurfEvaluationResult EvaluateBodyboard(double waveHeight, double wavePeriod)
+        private WindEffect GetWindEffect(int windDirection, int beachOrientation)
         {
-            if (waveHeight >= 1.0 && wavePeriod >= 8)
-                return new SurfEvaluationResult { Style = SurfStyle.Bodyboard, Rating = "Excelente", Commentary = "Ondas fortes e curtas, ideais para manobras rápidas." };
-            if (waveHeight >= 0.5)
-                return new SurfEvaluationResult { Style = SurfStyle.Bodyboard, Rating = "Moderado", Commentary = "Ondas razoáveis para treino." };
-            return new SurfEvaluationResult { Style = SurfStyle.Bodyboard, Rating = "Ruim", Commentary = "Ondas fracas para bodyboard." };
+            // Normalize the angle difference to be between -180 and 180
+            var angleDifference = (windDirection - beachOrientation + 180 + 360) % 360 - 180;
+
+            if (Math.Abs(angleDifference) > 135) // +/- 45 degrees from direct offshore
+            {
+                return WindEffect.Offshore; // Terral
+            }
+            if (Math.Abs(angleDifference) < 45) // +/- 45 degrees from direct onshore
+            {
+                return WindEffect.Onshore; // Maral
+            }
+            return WindEffect.CrossShore; // Lateral
         }
 
-        private SurfEvaluationResult EvaluateLongboard(double waveHeight, double wavePeriod)
+        private SurfEvaluationResult CreateResult(SurfStyle style, string rating, string commentary)
         {
-            if (waveHeight >= 0.6 && wavePeriod >= 10)
-                return new SurfEvaluationResult { Style = SurfStyle.Longboard, Rating = "Excelente", Commentary = "Ondas longas e suaves, perfeitas para longboard." };
-            if (waveHeight >= 0.4)
-                return new SurfEvaluationResult { Style = SurfStyle.Longboard, Rating = "Moderado", Commentary = "Condições aceitáveis para longboard." };
-            return new SurfEvaluationResult { Style = SurfStyle.Longboard, Rating = "Ruim", Commentary = "Ondas curtas e fracas." };
+            return new SurfEvaluationResult { Style = style, Rating = rating, Commentary = commentary };
         }
 
-        private SurfEvaluationResult EvaluateSUP(double waveHeight, int windDirection)
+        // --- Evaluation Methods ---
+
+        private SurfEvaluationResult EvaluateBodyboard(double h, double p, WindEffect wind, double ws)
         {
-            if (waveHeight <= 0.5 && (windDirection < 90 || windDirection > 270))
-                return new SurfEvaluationResult { Style = SurfStyle.StandUpPaddle, Rating = "Excelente", Commentary = "Mar calmo e pouco vento, ideal para SUP." };
-            return new SurfEvaluationResult { Style = SurfStyle.StandUpPaddle, Rating = "Ruim", Commentary = "Ondas agitadas ou vento forte dificultam o SUP." };
+            if (wind == WindEffect.Onshore && ws > 15) return CreateResult(SurfStyle.Bodyboard, "Ruim", "Vento maral forte estragando as ondas.");
+            if (h >= 1.0 && p >= 7) return CreateResult(SurfStyle.Bodyboard, "Excelente", "Ondas cavadas e fortes, ideais para bodyboard.");
+            if (h >= 0.5 && p >= 6) return CreateResult(SurfStyle.Bodyboard, "Moderado", "Condições razoáveis para praticar.");
+            return CreateResult(SurfStyle.Bodyboard, "Ruim", "Ondas muito pequenas ou fracas.");
         }
 
-        private SurfEvaluationResult EvaluateKite(int windDirection, double waveHeight)
+        private SurfEvaluationResult EvaluateLongboard(double h, double p, WindEffect wind, double ws)
         {
-            if (windDirection >= 90 && windDirection <= 270 && waveHeight <= 1.0)
-                return new SurfEvaluationResult { Style = SurfStyle.KiteSurf, Rating = "Excelente", Commentary = "Vento lateral e mar estável, ótimo para kite." };
-            return new SurfEvaluationResult { Style = SurfStyle.KiteSurf, Rating = "Ruim", Commentary = "Vento fraco ou instável, não recomendado para kite." };
+            if (wind == WindEffect.Onshore && ws > 12) return CreateResult(SurfStyle.Longboard, "Ruim", "Vento maral forte deixando o mar mexido.");
+            if (h >= 0.5 && h <= 1.8 && p >= 9) return CreateResult(SurfStyle.Longboard, "Excelente", "Ondas longas e suaves, perfeitas para caminhar na prancha.");
+            if (h >= 0.4 && p >= 8) return CreateResult(SurfStyle.Longboard, "Moderado", "Condições aceitáveis para longboard.");
+            return CreateResult(SurfStyle.Longboard, "Ruim", "Ondas curtas, fracas ou mexidas.");
         }
 
-        private SurfEvaluationResult EvaluateShortboard(double waveHeight, double wavePeriod)
+        private SurfEvaluationResult EvaluateSUP(double h, double ws)
         {
-            if (waveHeight >= 1.2 && wavePeriod >= 8)
-                return new SurfEvaluationResult { Style = SurfStyle.Shortboard, Rating = "Excelente", Commentary = "Ondas fortes e rápidas, perfeitas para manobras radicais." };
-            if (waveHeight >= 0.8)
-                return new SurfEvaluationResult { Style = SurfStyle.Shortboard, Rating = "Moderado", Commentary = "Condições razoáveis para shortboard." };
-            return new SurfEvaluationResult { Style = SurfStyle.Shortboard, Rating = "Ruim", Commentary = "Ondas fracas para prancha curta." };
+            if (h <= 0.4 && ws < 10) return CreateResult(SurfStyle.StandUpPaddle, "Excelente", "Mar calmo e pouco vento, ideal para remada no SUP.");
+            if (h <= 0.8 && ws < 15) return CreateResult(SurfStyle.StandUpPaddle, "Moderado", "Um pouco de onda e vento, mas remável.");
+            return CreateResult(SurfStyle.StandUpPaddle, "Ruim", "Mar muito agitado ou vento forte.");
         }
 
-        private SurfEvaluationResult EvaluateTowIn(double waveHeight, double wavePeriod, int windDirection)
+        private SurfEvaluationResult EvaluateKite(WindEffect wind, double ws)
         {
-            if (waveHeight >= 4.0 && wavePeriod >= 12)
-                return new SurfEvaluationResult { Style = SurfStyle.TowIn, Rating = "Excelente", Commentary = "Condições extremas, ideais para surf rebocado." };
-            if (waveHeight >= 3.0)
-                return new SurfEvaluationResult { Style = SurfStyle.TowIn, Rating = "Moderado", Commentary = "Ondas grandes, mas abaixo do ideal para tow-in." };
-            return new SurfEvaluationResult { Style = SurfStyle.TowIn, Rating = "Ruim", Commentary = "Ondas insuficientes para surf rebocado." };
+            if (wind == WindEffect.CrossShore && ws >= 20 && ws <= 45) return CreateResult(SurfStyle.KiteSurf, "Excelente", "Vento lateral na medida certa para o kite.");
+            if (wind != WindEffect.Onshore && ws >= 15) return CreateResult(SurfStyle.KiteSurf, "Moderado", "Vento bom, mas direção pode não ser a ideal.");
+            return CreateResult(SurfStyle.KiteSurf, "Ruim", "Vento fraco, maral ou muito forte.");
         }
 
-        private SurfEvaluationResult EvaluateFoil(double waveHeight, double wavePeriod, int windDirection)
+        private SurfEvaluationResult EvaluateShortboard(double h, double p, WindEffect wind, double ws)
         {
-            if (waveHeight >= 0.4 && waveHeight <= 1.0 && wavePeriod >= 10 && windDirection < 90)
-                return new SurfEvaluationResult { Style = SurfStyle.Foil, Rating = "Excelente", Commentary = "Ondas suaves e contínuas, perfeitas para foil surf." };
-            return new SurfEvaluationResult { Style = SurfStyle.Foil, Rating = "Ruim", Commentary = "Condições instáveis para foil surf." };
+            if (wind == WindEffect.Onshore && ws > 15) return CreateResult(SurfStyle.Shortboard, "Ruim", "Vento maral forte estragando a formação.");
+            if (h >= 1.2 && h <= 3.0 && p >= 8) return CreateResult(SurfStyle.Shortboard, "Excelente", "Ondas fortes e rápidas, perfeitas para manobras.");
+            if (h >= 0.8 && p >= 7) return CreateResult(SurfStyle.Shortboard, "Moderado", "Condições razoáveis para treinar.");
+            return CreateResult(SurfStyle.Shortboard, "Ruim", "Ondas fracas ou mexidas.");
         }
 
-        private SurfEvaluationResult EvaluateBigWave(double waveHeight, double wavePeriod, int windDirection)
+        private SurfEvaluationResult EvaluateBigWave(double h, double p, WindEffect wind, double ws)
         {
-            if (waveHeight >= 6.0 && wavePeriod >= 15 && (windDirection < 90 || windDirection > 270))
-                return new SurfEvaluationResult { Style = SurfStyle.BigWave, Rating = "Excelente", Commentary = "Condições épicas para quem busca adrenalina em ondas gigantes." };
-            if (waveHeight >= 5.0)
-                return new SurfEvaluationResult { Style = SurfStyle.BigWave, Rating = "Moderado", Commentary = "Ondas grandes, mas com vento desfavorável." };
-            return new SurfEvaluationResult { Style = SurfStyle.BigWave, Rating = "Ruim", Commentary = "Ondas abaixo do ideal para big wave surf." };
+            string styleName = h >= 6.0 ? "BigWave" : "TowIn";
+            var styleEnum = h >= 6.0 ? SurfStyle.BigWave : SurfStyle.TowIn;
+
+            if (wind == WindEffect.Onshore && ws > 25) return CreateResult(styleEnum, "Ruim", $"Vento maral muito forte torna as ondas perigosas e ruins para {styleName}.");
+            if (h >= 5.0 && p >= 12) return CreateResult(styleEnum, "Excelente", $"Condições extremas e desafiadoras, ideal para {styleName}.");
+            if (h >= 3.5 && p >= 10) return CreateResult(styleEnum, "Moderado", "Ondas grandes, mas não gigantes. Bom para treino.");
+            return CreateResult(styleEnum, "Ruim", "Ondas insuficientes para a modalidade.");
+        }
+
+        private SurfEvaluationResult EvaluateFoil(double h, double p, WindEffect wind, double ws)
+        {
+            if (wind == WindEffect.Onshore && ws > 15) return CreateResult(SurfStyle.Foil, "Ruim", "Vento maral forte dificulta o controle do foil.");
+            if (h >= 0.4 && h <= 1.5 && p >= 9) return CreateResult(SurfStyle.Foil, "Excelente", "Ondulação suave e longa, perfeita para voar com o foil.");
+            if (h >= 0.3 && p >= 8) return CreateResult(SurfStyle.Foil, "Moderado", "Condições razoáveis para a prática de foil.");
+            return CreateResult(SurfStyle.Foil, "Ruim", "Sem ondulação suficiente ou mar muito mexido.");
         }
     }
 }

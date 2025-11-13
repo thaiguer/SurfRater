@@ -1,0 +1,74 @@
+2025-11-11 23:08:07.762 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-11 23:08:07.804 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-11 23:08:07.804 -03:00 [INF] Hosting environment: Development
+2025-11-11 23:08:07.804 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-11 23:10:41.131 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-11 23:10:41.161 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-11 23:10:41.177 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-11 23:10:41.337 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-11 23:10:41.337 -03:00 [INF] Hosting environment: Development
+2025-11-11 23:10:41.338 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-11 23:10:44.218 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-11 23:10:44.636 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-11 23:10:44.647 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-11 23:10:44.652 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 485.036ms
+2025-11-11 23:10:45.033 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/favicon.ico - null null
+2025-11-11 23:10:45.036 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/favicon.ico - 404 0 null 3.2629ms
+2025-11-11 23:10:45.037 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7122/favicon.ico, Response status code: 404
+2025-11-11 23:11:51.241 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808. - null null
+2025-11-11 23:11:51.252 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:11:51.270 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:11:51.271 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to bind parameter "double longitude" from "-48.7808.".
+   at lambda_method10(Closure, Object, HttpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-11 23:11:51.325 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808. - 400 null text/html; charset=utf-8 84.514ms
+2025-11-11 23:12:05.294 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808. - null null
+2025-11-11 23:12:05.296 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:12:05.297 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:12:05.297 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to bind parameter "double longitude" from "-48.7808.".
+   at lambda_method10(Closure, Object, HttpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-11 23:12:05.299 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808. - 400 null text/html; charset=utf-8 5.2022ms
+2025-11-11 23:14:47.515 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-11 23:14:47.556 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-11 23:14:47.562 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-11 23:14:47.838 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-11 23:14:47.839 -03:00 [INF] Hosting environment: Development
+2025-11-11 23:14:47.839 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-11 23:14:48.805 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-11 23:14:49.080 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-11 23:14:49.088 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-11 23:14:49.090 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 294.388ms
+2025-11-11 23:15:12.832 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808 - null null
+2025-11-11 23:15:12.841 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:15:13.094 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:29:59.154 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-11 23:29:59.198 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-11 23:29:59.206 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-11 23:29:59.546 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-11 23:29:59.546 -03:00 [INF] Hosting environment: Development
+2025-11-11 23:29:59.547 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-11 23:30:00.265 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-11 23:30:00.628 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-11 23:30:00.636 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-11 23:30:00.645 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 388.7102ms
+2025-11-11 23:30:20.040 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808 - null null
+2025-11-11 23:30:20.046 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:30:20.200 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:31:55.391 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-11 23:31:55.420 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-11 23:31:55.426 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-11 23:31:55.557 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-11 23:31:55.557 -03:00 [INF] Hosting environment: Development
+2025-11-11 23:31:55.557 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-11 23:31:56.180 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-11 23:31:56.873 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-11 23:31:56.883 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-11 23:31:56.887 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 720.0388ms
+2025-11-11 23:32:25.139 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808 - null null
+2025-11-11 23:32:25.170 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-11 23:32:25.306 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'

@@ -57,18 +57,18 @@ public sealed class Test1
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             var weatherData = JsonSerializer.Deserialize<MarineWeatherResponse>(response, options);
 
-            if (weatherData?.Current == null)
+            if (weatherData?.WeatherData == null)
             {
                 Console.WriteLine("Dados marinhos ausentes na resposta.");
                 Assert.Inconclusive("Sem dados marinhos disponíveis para esta coordenada.");
             }
             else
             {
-                Console.WriteLine($"Altura da onda: {weatherData.Current.Wave_Height}");
-                Console.WriteLine($"Direção da onda: {weatherData.Current.Wave_Direction}");
-                Console.WriteLine($"Direção do vento sobre a onda: {weatherData.Current.Wind_Wave_Direction}");
+                Console.WriteLine($"Altura da onda: {weatherData.WeatherData.WaveHeight.FirstOrDefault()}");
+                Console.WriteLine($"Direção da onda: {weatherData.WeatherData.WaveDirection.FirstOrDefault()}");
+                Console.WriteLine($"Direção do vento sobre a onda: {weatherData.WeatherData.WindWaveDirection.FirstOrDefault()}");
 
-                Assert.IsTrue(weatherData.Current.Wave_Height > 0, "Altura da onda deve ser maior que zero.");
+                Assert.IsTrue(weatherData.WeatherData.WaveHeight.FirstOrDefault() > 0, "Altura da onda deve ser maior que zero.");
             }
         }
         catch (Exception ex)
