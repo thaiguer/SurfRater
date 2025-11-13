@@ -2,7 +2,7 @@
   "type": "FeatureCollection",
   "generator": "overpass-turbo",
   "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
-  "timestamp": "2025-11-06T17:49:12Z",
+  "timestamp": "2025-11-13T02:56:19Z",
   "features": [
     {
       "type": "Feature",
@@ -26579,8 +26579,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -41.7708801,
-          -22.3764689
+          -41.7708099,
+          -22.3764355
         ]
       },
       "id": "way/132683900"
@@ -45888,7 +45888,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -43.1677447,
+          -43.1677366,
           -22.9195967
         ]
       },
@@ -58894,6 +58894,22 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/1448487772",
+        "natural": "beach",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -41.7716061,
+          -22.3762219
+        ]
+      },
+      "id": "way/1448487772"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/1531603843",
         "name": "Balneário dos Sonhos",
         "natural": "beach"
@@ -62848,9 +62864,12 @@
       "properties": {
         "@id": "node/6597540671",
         "is_in": "Barra do Paraguaçu",
+        "lifeguard": "no",
         "name": "Praia da Pedra Mole",
         "natural": "beach",
-        "surface": "sand"
+        "supervised": "no",
+        "surface": "sand",
+        "wikidata": "Q136767273"
       },
       "geometry": {
         "type": "Point",

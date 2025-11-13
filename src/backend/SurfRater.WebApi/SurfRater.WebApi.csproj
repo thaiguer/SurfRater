@@ -16,4 +16,10 @@
     <ProjectReference Include="..\SurfRater.Core\SurfRater.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Data\praiasBr.geojson">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

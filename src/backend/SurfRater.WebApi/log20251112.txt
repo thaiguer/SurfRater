@@ -1,0 +1,59 @@
+2025-11-12 00:18:34.696 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-12 00:18:34.732 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-12 00:18:34.740 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-12 00:18:34.903 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-12 00:18:34.903 -03:00 [INF] Hosting environment: Development
+2025-11-12 00:18:34.903 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-12 00:18:35.833 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-12 00:18:36.205 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-12 00:18:36.211 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-12 00:18:36.216 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 393.1748ms
+2025-11-12 00:19:21.903 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4825&longitude=-48.7808 - null null
+2025-11-12 00:19:21.915 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-12 00:19:22.070 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
+2025-11-12 17:14:07.918 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-12 17:14:07.965 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-12 17:14:07.978 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-12 17:14:08.413 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-12 17:14:08.414 -03:00 [INF] Hosting environment: Development
+2025-11-12 17:14:08.414 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-12 17:14:10.945 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-12 17:14:15.205 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-12 17:14:15.213 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-12 17:14:15.218 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 4287.9686ms
+2025-11-12 23:46:04.746 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-12 23:46:04.785 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-12 23:46:04.799 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-12 23:46:05.004 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-12 23:46:05.005 -03:00 [INF] Hosting environment: Development
+2025-11-12 23:46:05.005 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-12 23:46:07.904 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-12 23:46:08.243 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-12 23:46:08.251 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-12 23:46:08.256 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 373.6618ms
+2025-11-12 23:46:08.616 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/favicon.ico - null null
+2025-11-12 23:46:08.620 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/favicon.ico - 404 0 null 4.5286ms
+2025-11-12 23:46:08.621 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7122/favicon.ico, Response status code: 404
+2025-11-12 23:47:25.664 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/wind?latitude=-28.4822&longitude=-48.7833 - null null
+2025-11-12 23:47:25.674 -03:00 [INF] Executing endpoint 'HTTP: GET /wind'
+2025-11-12 23:47:27.772 -03:00 [WRN] Open-Meteo API call failed with status code "BadRequest" and content: {"reason":"Latitude must be in range of -90 to 90°. Given: 4822.0.","error":true}
+2025-11-12 23:47:27.778 -03:00 [INF] Setting HTTP status code 404.
+2025-11-12 23:47:27.780 -03:00 [INF] Writing value of type 'String' as Json.
+2025-11-12 23:47:27.787 -03:00 [INF] Executed endpoint 'HTTP: GET /wind'
+2025-11-12 23:47:27.788 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/wind?latitude=-28.4822&longitude=-48.7833 - 404 null application/json; charset=utf-8 2123.733ms
+2025-11-12 23:47:37.907 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4822&longitude=-48.7833 - null null
+2025-11-12 23:47:37.910 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-12 23:47:38.162 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
+2025-11-12 23:50:00.324 -03:00 [INF] Now listening on: https://localhost:7122
+2025-11-12 23:50:00.372 -03:00 [INF] Now listening on: http://localhost:5290
+2025-11-12 23:50:00.418 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-11-12 23:50:00.698 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-12 23:50:00.698 -03:00 [INF] Hosting environment: Development
+2025-11-12 23:50:00.698 -03:00 [INF] Content root path: C:\Users\dadok\Documents\SurfRater\src\backend\SurfRater.WebApi
+2025-11-12 23:50:01.646 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/ - null null
+2025-11-12 23:50:01.973 -03:00 [INF] Executing endpoint 'HTTP: GET /'
+2025-11-12 23:50:01.984 -03:00 [INF] Executed endpoint 'HTTP: GET /'
+2025-11-12 23:50:01.988 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7122/ - 200 null text/plain; charset=utf-8 355.1599ms
+2025-11-12 23:50:03.930 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7122/surfspots?latitude=-28.4822&longitude=-48.7833 - null null
+2025-11-12 23:50:03.939 -03:00 [INF] Executing endpoint 'HTTP: GET /surfspots'
+2025-11-12 23:50:04.195 -03:00 [INF] Executed endpoint 'HTTP: GET /surfspots'
