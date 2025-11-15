@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SurfRater.Avalonia.ViewModels.Base;
 
 namespace SurfRater.Avalonia.ViewModels;
 

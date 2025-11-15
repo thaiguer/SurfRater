@@ -22,4 +22,16 @@
     <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="Material.Icons.Avalonia" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AboutView.axaml.cs">
+      <DependentUpon>AboutView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Base\MainFrameView.axaml.cs">
+      <DependentUpon>MainFrameView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomeView.axaml.cs">
+      <DependentUpon>HomeView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

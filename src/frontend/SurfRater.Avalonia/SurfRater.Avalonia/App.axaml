@@ -3,11 +3,19 @@
              xmlns:local="using:SurfRater.Avalonia"
              x:Class="SurfRater.Avalonia.App"
              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:viewModels="using:SurfRater.Avalonia.ViewModels"
+             xmlns:views="using:SurfRater.Avalonia.Views"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator/>
+        <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+            <views:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AboutViewModel}">
+            <views:AboutView />
+        </DataTemplate>
     </Application.DataTemplates>
 
     <Application.Styles>

@@ -1,11 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
 using SurfRater.Avalonia.ViewModels;
-using SurfRater.Avalonia.Views;
+using SurfRater.Avalonia.Views.Base;
 
 namespace SurfRater.Avalonia;
 
@@ -25,14 +24,14 @@ public partial class App : Application
             DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel()
+                //DataContext = new MainViewViewModel()
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new MainView
             {
-                DataContext = new MainViewModel()
+                //DataContext = new MainViewViewModel()
             };
         }
 

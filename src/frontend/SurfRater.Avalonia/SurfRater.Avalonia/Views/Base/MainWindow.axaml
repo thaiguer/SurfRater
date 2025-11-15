@@ -1,0 +1,15 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SurfRater.Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="using:SurfRater.Avalonia.Views.Base"
+        mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="500"
+        x:Class="SurfRater.Avalonia.Views.Base.MainWindow"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SurfRater.Avalonia">
+    <Grid>
+	    <local:MainFrameView/>
+    </Grid>
+</Window>

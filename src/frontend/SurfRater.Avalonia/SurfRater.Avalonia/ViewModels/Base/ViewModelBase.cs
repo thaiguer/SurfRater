@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace SurfRater.Avalonia.ViewModels;
+namespace SurfRater.Avalonia.ViewModels.Base;
 
 public abstract class ViewModelBase : ObservableObject
 {

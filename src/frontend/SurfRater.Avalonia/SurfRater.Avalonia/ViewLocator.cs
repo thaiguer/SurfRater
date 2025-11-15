@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using SurfRater.Avalonia.ViewModels;
+using SurfRater.Avalonia.ViewModels.Base;
 
 namespace SurfRater.Avalonia;
 

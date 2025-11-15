@@ -4,11 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:SurfRater.Avalonia.ViewModels"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SurfRater.Avalonia.About"
-			 x:DataType="vm:ViewModelBase">
+             x:Class="SurfRater.Avalonia.Views.AboutView"
+			 x:DataType="vm:AboutViewModel">
 	<Design.DataContext>
 		<!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-		<vm:ViewModelBase />
+		<vm:AboutViewModel />
 	</Design.DataContext>
+	<Label>
+		This is the About Page
+	</Label>
 </UserControl>
