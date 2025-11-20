@@ -7,7 +7,7 @@ SurfRater is an application designed to help surfers rate and review surf spots,
 - Consume surf condition (weather/forecast) APIs
 - Integrate coordinate validation APIs (Google Maps/OpenStreet)
 - Math Model Development and Test on backend
-- Hello World for communication between .Net Web Api and Android Kotlin Client
+- Frontend Android Client with Dotnet Avalonia. Will run the core project with local methods
 
 ## 🛠 Plan on Short Run
 
