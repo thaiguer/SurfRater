@@ -1,15 +1,18 @@
-﻿using Android.App;
+﻿using Android;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
+using AndroidX.Work;
 using Avalonia;
 using Avalonia.Android;
-using Android;
 using Splat;
 using SurfRater.Avalonia.Android.Services;
+using SurfRater.Avalonia.Android.Workers;
 using SurfRater.Avalonia.Services;
+using Java.Util.Concurrent;
 
 namespace SurfRater.Avalonia.Android;
 
@@ -34,6 +37,24 @@ public class MainActivity : AvaloniaMainActivity<App>
                 ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.PostNotifications }, NotificationPermissionRequestCode);
             }
         }
+
+        var request = PeriodicWorkRequest.Builder
+            .From<HourlyWorker>(1, TimeUnit.Minutes)
+            .Build();
+        
+        WorkManager.GetInstance(this).EnqueueUniquePeriodicWork(
+            "HourlyWork",
+            ExistingPeriodicWorkPolicy.Update,
+            request
+        );
+
+        //
+        //var request = OneTimeWorkRequest.Builder
+        //            .From<HourlyWorker>()
+        //            .Build();
+
+        //WorkManager.GetInstance(this).Enqueue(request);
+        //
     }
 
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)

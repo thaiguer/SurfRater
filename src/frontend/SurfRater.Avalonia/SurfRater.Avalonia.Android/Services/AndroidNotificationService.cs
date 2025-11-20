@@ -4,7 +4,6 @@ using Android.OS;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using SurfRater.Avalonia.Services;
-using Splat;
 using Android.Content.PM;
 using Android;
 

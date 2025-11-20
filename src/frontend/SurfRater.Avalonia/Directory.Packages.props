@@ -18,5 +18,6 @@
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.4.1" />
     <PackageVersion Include="Splat" Version="17.1.1" />
     <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" />
+    <PackageVersion Include="Xamarin.AndroidX.Work.Runtime" Version="2.10.5" />
   </ItemGroup>
 </Project>

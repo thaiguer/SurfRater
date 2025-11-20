@@ -18,21 +18,24 @@ public partial class HomeView : UserControl
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        if (_notificationManager == null)
-        {
-            var window = this.GetVisualRoot() as Window;
-            if (window != null)
-            {
-                _notificationManager = new WindowNotificationManager(window)
-                {
-                    Position = NotificationPosition.TopRight
-                };
-            }
-        }
+        var window = this.GetVisualRoot() as Window;
+        NotificationHelper.Show(window, "Hello!", "This is the notification from the button.");
+        
+        //if (_notificationManager == null)
+        //{
+        //    var window = this.GetVisualRoot() as Window;
+        //    if (window != null)
+        //    {
+        //        _notificationManager = new WindowNotificationManager(window)
+        //        {
+        //            Position = NotificationPosition.TopRight
+        //        };
+        //    }
+        //}
 
-        _notificationManager?.Show(new Notification("Hello!", "This is a notification.", NotificationType.Information));
+        //_notificationManager?.Show(new Notification("Hello!", "This is a notification.", NotificationType.Information));
 
-        var notifier = Locator.Current.GetService<INotificationService>();
-        notifier?.ShowNotification("Olá Thaiguer!", "Sua notificação Android está funcionando!");
+        //var notifier = Locator.Current.GetService<INotificationService>();
+        //notifier?.ShowNotification("Olá Thaiguer!", "Sua notificação Android está funcionando!");
     }
 }
