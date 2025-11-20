@@ -1,5 +1,6 @@
 ﻿using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
@@ -8,11 +9,11 @@ using AndroidX.Core.Content;
 using AndroidX.Work;
 using Avalonia;
 using Avalonia.Android;
+using Java.Util.Concurrent;
 using Splat;
 using SurfRater.Avalonia.Android.Services;
 using SurfRater.Avalonia.Android.Workers;
 using SurfRater.Avalonia.Services;
-using Java.Util.Concurrent;
 
 namespace SurfRater.Avalonia.Android;
 
@@ -55,6 +56,25 @@ public class MainActivity : AvaloniaMainActivity<App>
 
         //WorkManager.GetInstance(this).Enqueue(request);
         //
+
+        /////////
+        var alarmManager = (AlarmManager)GetSystemService(AlarmService);
+        var intent = new Intent(this, typeof(HourlyReceiver));
+        var pending = PendingIntent.GetBroadcast(
+            this, 0, intent, PendingIntentFlags.UpdateCurrent | PendingIntentFlags.Immutable);
+
+        long intervalMillis = 60 * 1000; // 1 hour
+        long triggerAtMillis = Java.Lang.JavaSystem.CurrentTimeMillis() + intervalMillis;
+
+        // Inexact repeating (better for battery)
+        alarmManager.SetInexactRepeating(
+            AlarmType.RtcWakeup,
+            triggerAtMillis,
+            intervalMillis,
+            pending
+        );
+
+        ////////////
     }
 
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
