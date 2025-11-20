@@ -1,50 +1,75 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:base="using:SurfRater.Avalonia.ViewModels.Base"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SurfRater.Avalonia.Views.Base.MainFrameView"
-             xmlns:vm="SurfRater.Avalonia.ViewModels.Base"
-             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-             xmlns:local="using:SurfRater.Avalonia.Views"
-             x:DataType="base:MainFrameViewModel"
-             >
-<Grid>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="30" />
-    </Grid.RowDefinitions>
-    <ContentControl Grid.Row="0"
-                    Content="{Binding CurrentViewModel}" />  
-    <ContentControl Grid.Row="1">
-        <StackPanel Orientation="Horizontal"
-                    Background="Gray"
-                    HorizontalAlignment="Stretch">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-				<Button Background="Transparent"
-                        BorderBrush="Transparent"
-                        Command="{Binding ChangeViewToHomeCommand}">
-                    <materialIcons:MaterialIcon Kind="Home" />
-                </Button>
+			 xmlns:base="using:SurfRater.Avalonia.ViewModels.Base"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="700"
+			 x:Class="SurfRater.Avalonia.Views.Base.MainFrameView"
+			 xmlns:vm="SurfRater.Avalonia.ViewModels.Base"
+			 xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 xmlns:local="using:SurfRater.Avalonia.Views"
+			 x:DataType="base:MainFrameViewModel"
+			 >
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+		<ContentControl Grid.Row="0"
+						Content="{Binding CurrentViewModel}" />
+			<ContentControl Grid.Row="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*" />
+						<ColumnDefinition Width="2*" />
+						<ColumnDefinition Width="2*" />
+						<ColumnDefinition Width="2*" />
+						<ColumnDefinition Width="2*" />
+						<ColumnDefinition Width="1*" />
+					</Grid.ColumnDefinitions>
 
-                <Button Background="Transparent"
-                        BorderBrush="Transparent">
-                    <materialIcons:MaterialIcon Kind="Check" />           
-                </Button>
+					<Button Grid.Column="1"
+							Background="Transparent"
+							BorderBrush="Transparent"
+							Command="{Binding ChangeViewToHomeCommand}"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center">
+						<materialIcons:MaterialIcon Kind="Home" />
+					</Button>
 
-                <Button Background="Transparent"
-                        BorderBrush="Transparent">
-                    <materialIcons:MaterialIcon Kind="Gear" />            
-                </Button>
+					<Button Grid.Column="2"
+							Background="Transparent"
+							BorderBrush="Transparent"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center">
+						<materialIcons:MaterialIcon Kind="Check"/>
+					</Button>
 
-                <Button Background="Transparent"
-                        BorderBrush="Transparent"
-                        Command="{Binding ChangeViewToAboutCommand}">
-                    <materialIcons:MaterialIcon Kind="Info" />
-                </Button>	
-            </StackPanel>
-        </StackPanel>
-    </ContentControl>
-</Grid>
+					<Button Grid.Column="3"
+							Background="Transparent"
+							BorderBrush="Transparent"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center">
+						<materialIcons:MaterialIcon Kind="Gear" />
+					</Button>
+
+					<Button Grid.Column="4"
+							Background="Transparent"
+							BorderBrush="Transparent"
+							Command="{Binding ChangeViewToAboutCommand}"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center">
+						<materialIcons:MaterialIcon Kind="Info" />
+					</Button>
+				</Grid>
+			</ContentControl>
+	</Grid>
 </UserControl>
