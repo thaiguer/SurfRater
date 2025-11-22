@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SurfRater.Core\SurfRater.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Views\AboutView.axaml.cs">
       <DependentUpon>AboutView.axaml</DependentUpon>
     </Compile>
