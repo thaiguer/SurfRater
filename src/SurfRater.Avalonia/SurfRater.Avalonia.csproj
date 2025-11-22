@@ -35,6 +35,9 @@
     <Compile Update="Views\Base\MainFrameView.axaml.cs">
       <DependentUpon>MainFrameView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\BeachStatusView.axaml.cs">
+      <DependentUpon>BeachStatusView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\HomeView.axaml.cs">
       <DependentUpon>HomeView.axaml</DependentUpon>
     </Compile>
