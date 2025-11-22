@@ -5,11 +5,6 @@ namespace SurfRater.Core.MathModel.New_Model_Implementation.Services;
 
 public static class BeachImporter
 {
-    /// <summary>
-    /// Lê um arquivo GeoJSON exportado do Overpass Turbo e converte em uma lista de BeachProfile.
-    /// </summary>
-    /// <param name="filePath">Caminho para o arquivo .geojson</param>
-    /// <returns>Lista de BeachProfile</returns>
     public static List<BeachProfile> LoadFromGeoJson(string filePath)
     {
         if (!File.Exists(filePath))
