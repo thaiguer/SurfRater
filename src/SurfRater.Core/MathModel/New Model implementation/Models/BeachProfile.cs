@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
+﻿namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
 {
     public class BeachProfile
     {

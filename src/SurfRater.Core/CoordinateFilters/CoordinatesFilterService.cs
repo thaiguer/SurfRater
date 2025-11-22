@@ -1,10 +1,10 @@
-﻿using SurfRater.Core.Data.ValueObjects;
+﻿using SurfRater.Core.Model.ValueObjects;
 
 namespace SurfRater.Core.CoordinateFilters;
 
-public class CoordinatesFilterService
+public static class CoordinatesFilterService
 {
-    public List<Coordinate> GerarMalhaDeCoordenadas(
+    public static List<Coordinate> GerarMalhaDeCoordenadas(
         double latInicio,
         double latFim,
         double lonInicio,
@@ -20,12 +20,10 @@ public class CoordinatesFilterService
                 coordenadas.Add(new Coordinate(Math.Round(lat, 6), Math.Round(lon, 6)));
             }
         }
-
-        Console.WriteLine($"Malha gerada com {coordenadas.Count} coordenadas.");
         return coordenadas;
     }
 
-    public bool EstaNaMalha(double latitude, double longitude)
+    public static bool EstaNaMalha(double latitude, double longitude)
     {
         var malha = GerarMalhaDeCoordenadas(
             latInicio: -29.3,
@@ -39,7 +37,6 @@ public class CoordinatesFilterService
             Math.Abs(coord.Latitude - latitude) < 0.025 &&
             Math.Abs(coord.Longitude - longitude) < 0.025);
 
-        Console.WriteLine($"Validação da coordenada ({latitude}, {longitude}): {(resultado ? "Válida" : "Inválida")}");
         return resultado;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using SurfRater.Core.MathModel.New_Model_Implementation.Models;
+﻿using SurfRater.Core.MathModel.New_Model_Implementation.Models;
 
 namespace SurfRater.Core.MathModel.New_Model_Implementation.Services
 {

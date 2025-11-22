@@ -1,14 +1,13 @@
-﻿namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
+﻿namespace SurfRater.Core.MathModel.New_Model_Implementation.Models;
+
+public enum SurfStyle
 {
-    public enum SurfStyle
-    {
-        Bodyboard,
-        Longboard,
-        StandUpPaddle,
-        KiteSurf,
-        Shortboard,
-        TowIn,
-        Foil,
-        BigWave
-    }
+    Bodyboard,
+    Longboard,
+    StandUpPaddle,
+    KiteSurf,
+    Shortboard,
+    TowIn,
+    Foil,
+    BigWave
 }

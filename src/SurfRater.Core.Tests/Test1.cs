@@ -1,30 +1,12 @@
 ﻿using System.Text.Json;
 using SurfRater.Core.CoordinateFilters;
 using SurfRater.Core.Data.Implementation.OpenMeteo;
-using SurfRater.Core.Data.ValueObjects;
-using SurfRater.Core.MathModel.Implementation;
 
 namespace SurfRater.Core.Tests;
 
 [TestClass]
 public sealed class Test1
-{
-    [TestMethod]
-    public void TestarOCalculo()
-    {
-        var surfParameters = new List<SurfParameter>();
-        surfParameters.Add(new SurfParameter("Swell", 15, 13));
-        surfParameters.Add(new SurfParameter("Onda", 15, 13));
-        surfParameters.Add(new SurfParameter("Vento", 10, 6));
-        surfParameters.Add(new SurfParameter("Vibe", 45, 48));
-
-        var surfConditonsCalculator = new SurfConditonsCalculator(new WeatherData());
-        var result = surfConditonsCalculator.Calculate(surfParameters);
-
-        Assert.IsTrue(result.Equals("tá picaaaaaaaaaaaaaa"));
-    }
-    
-    
+{   
     [TestMethod]
     public async Task RequisitionAsync()
     {
@@ -34,9 +16,7 @@ public sealed class Test1
         Console.WriteLine("Iniciando teste de requisição...");
         Console.WriteLine($"Coordenada usada: Latitude = {latitude}, Longitude = {longitude}");
 
-        var coordinatesFilterService = new CoordinatesFilterService();
-
-        if (!coordinatesFilterService.EstaNaMalha(latitude, longitude))
+        if (!CoordinatesFilterService.EstaNaMalha(latitude, longitude))
         {
             Console.WriteLine("Coordenada fora da faixa válida. Encerrando teste.");
             Assert.Inconclusive("Coordenada fora da faixa entre Torres e Florianópolis.");

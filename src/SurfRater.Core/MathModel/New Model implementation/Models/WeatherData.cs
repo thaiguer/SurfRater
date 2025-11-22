@@ -1,17 +1,16 @@
-﻿namespace SurfRater.Core.MathModel.New_Model_Implementation.Models
-{
-    public class WeatherData
-    {
-        public MarineConditions Current { get; set; }
-    }
+﻿namespace SurfRater.Core.MathModel.New_Model_Implementation.Models;
 
-    public class MarineConditions
-    {
-        public double? Wave_Height { get; set; }
-        public double? Wave_Period { get; set; }
-        public int? Wave_Direction { get; set; }
-        public int? Wind_Wave_Direction { get; set; }
-        public double? Wind_Speed_10m { get; set; }
-        public int? Wind_Direction_10m { get; set; }
-    }
+public class WeatherData
+{
+    public MarineConditions Current { get; set; }
+}
+
+public class MarineConditions
+{
+    public double? Wave_Height { get; set; }
+    public double? Wave_Period { get; set; }
+    public int? Wave_Direction { get; set; }
+    public int? Wind_Wave_Direction { get; set; }
+    public double? Wind_Speed_10m { get; set; }
+    public int? Wind_Direction_10m { get; set; }
 }
