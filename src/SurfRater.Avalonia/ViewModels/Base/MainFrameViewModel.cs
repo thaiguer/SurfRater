@@ -15,6 +15,18 @@ public partial class MainFrameViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    private void ChangeViewToMyBeaches()
+    {
+        CurrentViewModel = new MyBeachesViewModel();
+    }
+
+    [RelayCommand]
+    private void ChangeViewToSettings()
+    {
+        CurrentViewModel = new SettingsViewModel();
+    }
+
+    [RelayCommand]
     private void ChangeViewToAbout()
     {
         CurrentViewModel = new AboutViewModel();

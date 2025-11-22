@@ -10,11 +10,20 @@
 
     <Application.DataTemplates>
         <local:ViewLocator/>
+        <DataTemplate DataType="{x:Type viewModels:AboutViewModel}">
+            <views:AboutView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:BeachStatusViewModel}">
+            <views:BeachStatusView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
             <views:HomeView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:AboutViewModel}">
-            <views:AboutView />
+        <DataTemplate DataType="{x:Type viewModels:MyBeachesViewModel}">
+            <views:MyBeachesView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
+            <views:SettingsView />
         </DataTemplate>
     </Application.DataTemplates>
 
