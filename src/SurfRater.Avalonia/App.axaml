@@ -4,7 +4,9 @@
              x:Class="SurfRater.Avalonia.App"
              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:viewModels="using:SurfRater.Avalonia.ViewModels"
+             xmlns:viewModelsComponents="using:SurfRater.Avalonia.ViewModels.Components"
              xmlns:views="using:SurfRater.Avalonia.Views"
+             xmlns:viewsComponents="using:SurfRater.Avalonia.Views.Components"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -12,9 +14,6 @@
         <local:ViewLocator/>
         <DataTemplate DataType="{x:Type viewModels:AboutViewModel}">
             <views:AboutView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:BeachStatusViewModel}">
-            <views:BeachStatusView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
             <views:HomeView />
@@ -24,6 +23,13 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
             <views:SettingsView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModelsComponents:BeachStatusViewModel}">
+            <viewsComponents:BeachStatusView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModelsComponents:MyBeachItemViewModel}">
+            <viewsComponents:MyBeachItemView />
         </DataTemplate>
     </Application.DataTemplates>
 

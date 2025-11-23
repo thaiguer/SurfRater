@@ -47,7 +47,7 @@
 							VerticalAlignment="Stretch"
 							HorizontalContentAlignment="Center"
 							VerticalContentAlignment="Center">
-						<materialIcons:MaterialIcon Kind="Check"/>
+						<materialIcons:MaterialIcon Kind="Beach"/>
 					</Button>
 
 					<Button Grid.Column="3"

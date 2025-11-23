@@ -13,8 +13,6 @@ public partial class HomeView : UserControl
         InitializeComponent();
     }
 
-    private WindowNotificationManager? _notificationManager;
-
     private void Button_Click(object sender, RoutedEventArgs e)
     {
         var window = this.GetVisualRoot() as Window;

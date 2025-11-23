@@ -2,7 +2,7 @@
 using SurfRater.Avalonia.Model;
 using SurfRater.Avalonia.ViewModels.Base;
 
-namespace SurfRater.Avalonia.ViewModels;
+namespace SurfRater.Avalonia.ViewModels.Components;
 
 public partial class BeachStatusViewModel : ViewModelBase
 {
