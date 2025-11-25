@@ -1,17 +1,47 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="using:SurfRater.Avalonia.ViewModels"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:SurfRater.Avalonia.ViewModels"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SurfRater.Avalonia.Views.AboutView"
+			 x:Class="SurfRater.Avalonia.Views.AboutView"
 			 x:DataType="vm:AboutViewModel">
 	<Design.DataContext>
 		<!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 		<vm:AboutViewModel />
 	</Design.DataContext>
-	<Label>
-		This is the About Page
-	</Label>
+	<StackPanel>
+		<Label Content="About the app"/>
+		<Label Content="Source Code:"/>
+		<HyperlinkButton Content="https://github.com/thaiguer/SurfRater"/>
+
+		<Border BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" BorderThickness="1">
+			<StackPanel>
+				<Label Content="Frontend, Backend, Architect developer:"/>
+				<Label Content="Thaiguer"/>
+			</StackPanel>
+		</Border>
+
+		<Border BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" BorderThickness="1">
+			<StackPanel>
+				<Label Content="Backend Developer:"/>
+				<Label Content="Dado"/>
+			</StackPanel>
+		</Border>
+
+		<Border BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" BorderThickness="1">
+			<StackPanel>
+				<Label Content="Graphical Designer:"/>
+				<Label Content="Dedey"/>
+			</StackPanel>
+		</Border>
+
+		<Border BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" BorderThickness="1">
+			<StackPanel>
+				<Label Content="Premium User:"/>
+				<Label Content="Iago"/>
+			</StackPanel>
+		</Border>
+	</StackPanel>
 </UserControl>
