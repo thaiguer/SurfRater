@@ -17,7 +17,9 @@
 		<Border BorderBrush="{DynamicResource SystemControlForegroundBaseHighBrush}" BorderThickness="1">
 			<StackPanel>
 				<Label Content="Source Code:"/>
-				<HyperlinkButton Content="https://github.com/thaiguer/SurfRater"/>
+				<HyperlinkButton Content="SurfRater on GitHub"
+								 NavigateUri="https://github.com/thaiguer/SurfRater"
+								 />
 			</StackPanel>
 		</Border>
 
