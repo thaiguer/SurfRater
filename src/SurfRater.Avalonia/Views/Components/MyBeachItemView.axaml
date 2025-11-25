@@ -10,7 +10,7 @@
 		<vm:MyBeachItemViewModel />
 	</Design.DataContext>
   <StackPanel>
-	  <Label Content="A circle with a color"/>
-      <Label Content="The Beach Name"/>
+	  <Label Content="{Binding Color}"/>
+      <Label Content="{Binding Name}"/>
   </StackPanel>
 </UserControl>

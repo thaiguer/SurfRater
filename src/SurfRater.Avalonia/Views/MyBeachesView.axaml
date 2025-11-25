@@ -5,11 +5,28 @@
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 xmlns:vm="using:SurfRater.Avalonia.ViewModels"
 			 x:Class="SurfRater.Avalonia.Views.MyBeachesView"
-			 x:DataType="vm:MyBeachesViewModel">
+			 x:DataType="vm:MyBeachesViewModel"
+			 xmlns:local="clr-namespace:SurfRater.Avalonia.Views.Components">
 	<Design.DataContext>
 		<vm:MyBeachesViewModel />
 	</Design.DataContext>
-	<Label>
-		This are mine beaches
-	</Label>
+
+	<StackPanel>
+		<Label>
+			This are mine beaches
+		</Label>
+
+		<Button Content="Add Beach"
+				Command="{Binding AddBeachCommand}"/>
+
+		<ScrollViewer>
+			<ListBox Items="{Binding MyBeaches}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<local:MyBeachItemView/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</ScrollViewer>
+	</StackPanel>
 </UserControl>
