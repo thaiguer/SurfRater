@@ -1,8 +1,25 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SurfRater.Avalonia.Views.SettingsView">
-  This are the settings.
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:vm="using:SurfRater.Avalonia.ViewModels"
+			 x:DataType="vm:SettingsViewModel"
+			 x:Class="SurfRater.Avalonia.Views.SettingsView">
+	<Design.DataContext>
+		<vm:SettingsViewModel />
+	</Design.DataContext>
+
+	<StackPanel>
+		<RadioButton Content="Dark"
+			   IsChecked="{Binding UseDarkTheme}"
+			   Command="{Binding SetThemeToDarkCommand}"/>
+		<RadioButton Content="Light"
+			   IsChecked="{Binding UseLightTheme}"
+		Command="{Binding SetThemeToLightCommand}"/>
+		<RadioButton Content="System"
+			   IsChecked="{Binding UseSystemTheme}"
+			   Command="{Binding SetThemeToSystemCommand}"/>
+	</StackPanel>
+
 </UserControl>
