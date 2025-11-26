@@ -5,7 +5,7 @@
              xmlns:metadata="using:System.Reflection.Metadata"
              xmlns:vm="using:SurfRater.Avalonia.ViewModels"
              xmlns:local="using:SurfRater.Avalonia.Views.Base"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="700"
              x:Class="SurfRater.Avalonia.Views.Base.MainView"
              >
     <Grid>
