@@ -3,9 +3,16 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-			 x:Class="SurfRater.Avalonia.Views.HomeView">
+			 x:Class="SurfRater.Avalonia.Views.HomeView"
+			 xmlns:vm="using:SurfRater.Avalonia.ViewModels"
+			 x:DataType="vm:HomeViewModel"
+			 >
+	<Design.DataContext>
+		<vm:HomeViewModel />
+	</Design.DataContext>
+
 	<StackPanel>
 		<Label>This is the home!</Label>
-		<Button Click="Button_Click">Show Notification</Button>
+		<Button Command="{Binding ShowTestNotification}" Content="Show Notification"/>
 	</StackPanel>
 </UserControl>

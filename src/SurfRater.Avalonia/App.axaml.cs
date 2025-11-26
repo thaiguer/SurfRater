@@ -3,13 +3,15 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using SurfRater.Avalonia.ViewModels;
 using SurfRater.Avalonia.Views.Base;
+using Avalonia.Controls;
 
 namespace SurfRater.Avalonia;
 
 public partial class App : Application
 {
+    public static Window? MainWindow;
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -26,6 +28,8 @@ public partial class App : Application
             {
                 //DataContext = new MainViewViewModel()
             };
+
+            MainWindow = desktop.MainWindow;
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {

@@ -12,10 +12,4 @@ public partial class HomeView : UserControl
     {
         InitializeComponent();
     }
-
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        var window = this.GetVisualRoot() as Window;
-        NotificationHelper.Show(window, "Hello!", "This is the notification from the button.");
-    }
 }
