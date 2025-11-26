@@ -8,6 +8,6 @@ public partial class MyBeachesView : UserControl
     public MyBeachesView()
     {
         InitializeComponent();
-        DataContext = new MyBeachesViewModel();
+        //DataContext = new MyBeachesViewModel();
     }
 }
