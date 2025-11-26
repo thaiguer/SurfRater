@@ -20,7 +20,7 @@
 				Command="{Binding AddBeachCommand}"/>
 
 		<ScrollViewer>
-			<ListBox Items="{Binding MyBeaches}">
+			<ListBox ItemsSource="{Binding MyBeaches}">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<local:MyBeachItemView/>
