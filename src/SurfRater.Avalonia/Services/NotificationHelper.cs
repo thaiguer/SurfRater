@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls;
-using Avalonia.Controls.Notifications;
+﻿using Avalonia.Controls.Notifications;
 using Splat;
 
 namespace SurfRater.Avalonia.Services;
@@ -27,7 +26,7 @@ public static class NotificationHelper
             };
         }
 
-        _windowManager.Show(new Notification(title, message, NotificationType.Information));
+        _windowManager.Show(new Notification(title, message, NotificationType.Success));
     }
 
     private static void ShowOnMobile(string title, string message)
