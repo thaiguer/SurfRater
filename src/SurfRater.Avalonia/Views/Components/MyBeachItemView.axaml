@@ -9,8 +9,8 @@
     <Design.DataContext>
 		<vm:MyBeachItemViewModel />
 	</Design.DataContext>
-  <StackPanel>
-	  <Label Content="{Binding Color}"/>
+  <StackPanel Orientation="Horizontal">
+	  <Ellipse Width="20" Height="20" Fill="{Binding Color}"/>
       <Label Content="{Binding Name}"/>
   </StackPanel>
 </UserControl>
