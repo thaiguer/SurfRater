@@ -23,7 +23,7 @@
 			<ListBox ItemsSource="{Binding MyBeaches}">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<local:MyBeachItemView/>
+						<local:MyBeachItemView DataContext="{Binding}"/>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>

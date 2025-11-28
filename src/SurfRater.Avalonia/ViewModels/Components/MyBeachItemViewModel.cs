@@ -6,8 +6,8 @@ namespace SurfRater.Avalonia.ViewModels.Components;
 public partial class MyBeachItemViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private string _name;
+    private string _name = string.Empty;
 
     [ObservableProperty]
-    private string _color;
+    private string _color = string.Empty;
 }
