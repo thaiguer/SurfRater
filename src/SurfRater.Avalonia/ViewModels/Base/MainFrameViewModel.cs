@@ -1,39 +1,38 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
+using SurfRater.Avalonia.Navigation;
 
 namespace SurfRater.Avalonia.ViewModels.Base;
 
 public partial class MainFrameViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private object _currentViewModel = new HomeViewModel();
+    public NavigationService Navigation => App.NavigationService;
 
-    private HomeViewModel _homeViewModel = new HomeViewModel();
-    private MyBeachesViewModel _myBeachesViewModel = new MyBeachesViewModel();
-    private SettingsViewModel _settingsViewModel = new SettingsViewModel();
-    private AboutViewModel _aboutViewModel = new AboutViewModel();
+    public MainFrameViewModel()
+    {
+        App.NavigationService.NavigateTo(new HomeViewModel());
+    }
 
     [RelayCommand]
     private void ChangeViewToHome()
     {
-        CurrentViewModel = _homeViewModel;
+        App.NavigationService.NavigateToHome();
     }
 
     [RelayCommand]
     private void ChangeViewToMyBeaches()
     {
-        CurrentViewModel = _myBeachesViewModel;
+        App.NavigationService.NavigateToMyBeaches();
     }
 
     [RelayCommand]
     private void ChangeViewToSettings()
     {
-        CurrentViewModel = _settingsViewModel;
+        App.NavigationService.NavigateToSettings();
     }
 
     [RelayCommand]
     private void ChangeViewToAbout()
     {
-        CurrentViewModel = _aboutViewModel;
+        App.NavigationService.NavigateToAbout();
     }
 }

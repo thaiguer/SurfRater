@@ -1,17 +1,19 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
-using System.Linq;
 using Avalonia.Markup.Xaml;
+using SurfRater.Avalonia.Navigation;
 using SurfRater.Avalonia.Views.Base;
-using Avalonia.Controls;
+using System.Linq;
 
 namespace SurfRater.Avalonia;
 
 public partial class App : Application
 {
     public static Window? MainWindow;
-
+    public static NavigationService NavigationService = new NavigationService();
+    
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);

@@ -16,7 +16,7 @@
 			<RowDefinition Height="50" />
 		</Grid.RowDefinitions>
 		<ContentControl Grid.Row="0"
-						Content="{Binding CurrentViewModel}" />
+						Content="{Binding Navigation.CurrentViewModel}" />
 			<ContentControl Grid.Row="1">
 				<Grid>
 					<Grid.ColumnDefinitions>
