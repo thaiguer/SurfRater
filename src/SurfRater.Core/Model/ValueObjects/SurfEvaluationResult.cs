@@ -1,4 +1,6 @@
-﻿namespace SurfRater.Core.MathModel.New_Model_Implementation.Models;
+﻿using SurfRater.Core.Enumerators;
+
+namespace SurfRater.Core.Model.ValueObjects;
 
 public class SurfEvaluationResult
 {

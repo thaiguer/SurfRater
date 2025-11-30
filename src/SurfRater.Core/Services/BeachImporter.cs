@@ -1,7 +1,9 @@
 ﻿using System.Text.Json;
-using SurfRater.Core.MathModel.New_Model_Implementation.Models;
+using SurfRater.Core.Enumerators;
+using SurfRater.Core.Model.Entities;
+using SurfRater.Core.Model.ValueObjects;
 
-namespace SurfRater.Core.MathModel.New_Model_Implementation.Services;
+namespace SurfRater.Core.Services;
 
 public static class BeachImporter
 {

@@ -1,6 +1,6 @@
 ﻿using SurfRater.Core.Model.ValueObjects;
 
-namespace SurfRater.Core.CoordinateFilters;
+namespace SurfRater.Core.Services;
 
 public static class CoordinatesFilterService
 {

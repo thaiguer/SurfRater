@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
-using SurfRater.Core.CoordinateFilters;
-using SurfRater.Core.Data.Implementation.OpenMeteo;
+using SurfRater.Core.Data;
+using SurfRater.Core.Services;
 
 namespace SurfRater.Core.Tests;
 

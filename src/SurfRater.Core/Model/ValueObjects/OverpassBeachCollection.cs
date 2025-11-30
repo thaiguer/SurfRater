@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SurfRater.Core.MathModel.New_Model_Implementation.Models;
+namespace SurfRater.Core.Model.ValueObjects;
 
 public class OverpassBeachCollection
 {

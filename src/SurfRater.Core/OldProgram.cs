@@ -1,4 +1,4 @@
-﻿namespace SurfRater.Core.MathModel;
+﻿namespace SurfRater.Core;
 
 public class OldProgram
 {

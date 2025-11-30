@@ -1,5 +1,5 @@
 using System.Text.Json;
-using SurfRater.Core.Data.Implementation.OpenMeteo;
+using SurfRater.Core.Data;
 using SurfRater.Core.Model.ValueObjects;
 
 namespace SurfRater.Core.Services;

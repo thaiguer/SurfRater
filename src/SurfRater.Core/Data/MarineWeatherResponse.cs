@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace SurfRater.Core.Data.Implementation.OpenMeteo
+namespace SurfRater.Core.Data
 {
     public class MarineWeatherResponse
     {

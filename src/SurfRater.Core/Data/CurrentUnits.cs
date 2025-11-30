@@ -1,4 +1,4 @@
-﻿namespace SurfRater.Core.Data.Implementation.OpenMeteo;
+﻿namespace SurfRater.Core.Data;
 
 public class Current_Units
 {
