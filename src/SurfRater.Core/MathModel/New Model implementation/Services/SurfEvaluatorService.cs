@@ -3,7 +3,7 @@ using SurfRater.Core.MathModel.New_Model_Implementation.Models;
 
 namespace SurfRater.Core.MathModel.New_Model_Implementation.Services;
 
-public class SurfEvaluatorService : ISurfEvaluatorService
+public class SurfEvaluatorService
 {
     public SurfEvaluationResult Evaluate(WeatherData weatherData, SurfStyle style, BeachProfile beach)
     {

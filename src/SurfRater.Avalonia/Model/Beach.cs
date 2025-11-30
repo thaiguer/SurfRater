@@ -1,5 +1,6 @@
 ﻿using SurfRater.Core.Enumerators;
 using SurfRater.Core.Model.ValueObjects;
+using System.Threading.Tasks;
 
 namespace SurfRater.Avalonia.Model;
 
@@ -9,4 +10,9 @@ public class Beach : ValueObject
     public Coordinate Coordinate { get; set; }
     public SurfCondition SurfCondition { get; set; }
     public SurfConditionColor SurfConditionColor { get; private set; } = new();
+
+    public async Task UpdateSurfCondition()
+    {
+
+    }
 }
