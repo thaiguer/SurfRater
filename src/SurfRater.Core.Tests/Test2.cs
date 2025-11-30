@@ -1,13 +1,11 @@
 ﻿using SurfRater.Core.Enumerators;
-using SurfRater.Core.MathModel.New_Model_Implementation.Models;
-using SurfRater.Core.MathModel.New_Model_Implementation.Services;
 using SurfRater.Core.Model.ValueObjects;
 using SurfRater.Core.Services;
 using System.Globalization;
 using System.Reflection;
 using System.Text.Json;
 
-namespace SurfRater.Core.Tests.MathModel;
+namespace SurfRater.Core.Tests;
 
 [TestClass]
 public class LagunaIntegrationTest
