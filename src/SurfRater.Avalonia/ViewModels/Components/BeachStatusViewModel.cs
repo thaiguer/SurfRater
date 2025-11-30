@@ -17,4 +17,10 @@ public partial class BeachStatusViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _longitude = string.Empty;
+
+    [ObservableProperty]
+    private string _currentCondition = string.Empty;
+
+    [ObservableProperty]
+    private string _color = string.Empty;
 }
