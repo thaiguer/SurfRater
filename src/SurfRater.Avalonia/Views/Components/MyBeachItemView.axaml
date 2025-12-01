@@ -11,8 +11,8 @@
 	</Design.DataContext>
 	<Button Command="{Binding OpenBeachStatus}">
 		<StackPanel Orientation="Horizontal">
-			<Ellipse Width="20" Height="20" Fill="{Binding Color}"/>
-			<Label Content="{Binding Name}"/>
+			<Ellipse Width="20" Height="20" Fill="{Binding Beach.SurfConditionColor}"/>
+			<Label Content="{Binding Beach.Name}"/>
 		</StackPanel>
 	</Button>
 </UserControl>

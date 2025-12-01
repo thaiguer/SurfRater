@@ -8,18 +8,17 @@ namespace SurfRater.Avalonia.ViewModels.Components;
 public partial class MyBeachItemViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private string _name = string.Empty;
+    private Beach _beach;
 
-    [ObservableProperty]
-    private string _color = string.Empty;
+    public MyBeachItemViewModel(Beach beach)
+    {
+        Beach = beach;
+    }
 
     [RelayCommand]
     public void OpenBeachStatus()
     {
-        var beach = new Beach();
-        beach.Name = _name;
-
-        var beachStatusViewModel = new BeachStatusViewModel(beach);
+        var beachStatusViewModel = new BeachStatusViewModel(Beach);
         App.NavigationService.NavigateTo(beachStatusViewModel);
     }
 }
