@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using SurfRater.Avalonia.ViewModels.Components;
 
 namespace SurfRater.Avalonia.Views.Components;
 
