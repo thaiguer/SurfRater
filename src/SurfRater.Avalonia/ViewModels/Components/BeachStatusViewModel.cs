@@ -6,19 +6,11 @@ namespace SurfRater.Avalonia.ViewModels.Components;
 
 public partial class BeachStatusViewModel : ViewModelBase
 {
+    [ObservableProperty]
+    private Beach _beach;
+
     public BeachStatusViewModel(Beach beach)
     {
+        Beach = beach;
     }
-    
-    [ObservableProperty]
-    private string _latitude = string.Empty;
-
-    [ObservableProperty]
-    private string _longitude = string.Empty;
-
-    [ObservableProperty]
-    private string _currentCondition = string.Empty;
-
-    [ObservableProperty]
-    private string _color = string.Empty;
 }

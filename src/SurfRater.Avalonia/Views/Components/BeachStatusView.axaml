@@ -12,6 +12,8 @@
 	
 	<StackPanel>
 		<Label>This is a beach status</Label>
+		<Label Content="{Binding Beach.Name}"/>
+		<Label Content="{Binding Beach.SurfConditionColor}"/>
 	</StackPanel>
 
 </UserControl>
