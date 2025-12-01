@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SurfRater.Avalonia.ViewModels.Base;
+using SurfRater.Core.Model.Entities;
 
 namespace SurfRater.Avalonia.ViewModels.Components;
 
@@ -15,6 +16,10 @@ public partial class MyBeachItemViewModel : ViewModelBase
     [RelayCommand]
     public void OpenBeachStatus()
     {
-        var a = "nothing";
+        var beach = new Beach();
+        beach.Name = _name;
+
+        var beachStatusViewModel = new BeachStatusViewModel(beach);
+        App.NavigationService.NavigateTo(beachStatusViewModel);
     }
 }

@@ -6,7 +6,7 @@ namespace SurfRater.Avalonia.ViewModels.Components;
 
 public partial class BeachStatusViewModel : ViewModelBase
 {
-    public BeachStatusViewModel()
+    public BeachStatusViewModel(Beach beach)
     {
     }
     

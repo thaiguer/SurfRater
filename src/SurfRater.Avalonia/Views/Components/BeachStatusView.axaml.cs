@@ -8,6 +8,5 @@ public partial class BeachStatusView : UserControl
     public BeachStatusView()
     {
         InitializeComponent();
-        DataContext = new BeachStatusViewModel();
     }
 }
