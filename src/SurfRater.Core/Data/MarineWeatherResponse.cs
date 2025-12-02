@@ -1,23 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace SurfRater.Core.Data
+namespace SurfRater.Core.Data;
+
+public class MarineWeatherResponse
 {
-    public class MarineWeatherResponse
-    {
-        [JsonPropertyName("hourly")]
-        public Hourly WeatherData { get; set; }
-    }
+    [JsonPropertyName("hourly")]
+    public Hourly WeatherData { get; set; }
+}
 
-    public class Hourly
-    {
-        [JsonPropertyName("wind_wave_direction")]
-        public List<double> WindWaveDirection { get; set; }
+public class Hourly
+{
+    [JsonPropertyName("wind_wave_direction")]
+    public List<double> WindWaveDirection { get; set; }
 
-        [JsonPropertyName("wave_height")]
-        public List<double> WaveHeight { get; set; }
+    [JsonPropertyName("wave_height")]
+    public List<double> WaveHeight { get; set; }
 
-        [JsonPropertyName("wave_direction")]
-        public List<double> WaveDirection { get; set; }
-    }
+    [JsonPropertyName("wave_direction")]
+    public List<double> WaveDirection { get; set; }
 }
