@@ -6,19 +6,15 @@ namespace SurfRater.Core.Tests;
 
 [TestClass]
 public sealed class Test1
-{   
+{
     [TestMethod]
     public async Task RequisitionAsync()
     {
         double latitude = -28.48871042016006;
         double longitude = -48.74739086392232;
 
-        Console.WriteLine("Iniciando teste de requisição...");
-        Console.WriteLine($"Coordenada usada: Latitude = {latitude}, Longitude = {longitude}");
-
         if (!CoordinatesFilterService.EstaNaMalha(latitude, longitude))
-        {
-            Console.WriteLine("Coordenada fora da faixa válida. Encerrando teste.");
+        {          
             Assert.Inconclusive("Coordenada fora da faixa entre Torres e Florianópolis.");
             return;
         }
@@ -31,7 +27,6 @@ public sealed class Test1
         try
         {
             var response = await httpClient.GetStringAsync(url);
-            Console.WriteLine("Resposta recebida da API.");
             Console.WriteLine($"JSON bruto:\n{response}");
 
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -58,4 +53,3 @@ public sealed class Test1
         }
     }
 }
-//-28.48871042016006, -48.74739086392232
