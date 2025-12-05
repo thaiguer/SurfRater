@@ -1,6 +1,5 @@
 ﻿using SurfRater.Core.Enumerators;
 using SurfRater.Core.Model.ValueObjects;
-using System;
 
 namespace SurfRater.Core.Model.Entities;
 
