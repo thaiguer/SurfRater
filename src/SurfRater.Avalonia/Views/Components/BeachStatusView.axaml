@@ -12,6 +12,7 @@
 	
 	<StackPanel>
 		<Label>This is a beach status</Label>
+		<ProgressBar IsIndeterminate="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
 		<Label Content="{Binding Beach.Name}"/>
 		<Label Content="{Binding Beach.SurfConditionColor}"/>
 	</StackPanel>
