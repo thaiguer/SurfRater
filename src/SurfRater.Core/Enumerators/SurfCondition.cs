@@ -2,6 +2,7 @@
 
 public enum SurfCondition
 {
+    Unknown = -1,
     Terrible = 0,
     VeryBad = 1,
     Bad = 2,
