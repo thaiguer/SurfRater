@@ -1,32 +1,38 @@
-﻿using SurfRater.Core.Enumerators;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SurfRater.Core.Enumerators;
 using SurfRater.Core.Model.ValueObjects;
 
 namespace SurfRater.Core.Model.Entities;
 
-public class Beach : ValueObject
+public partial class Beach : ObservableObject
 {
-    public string Name { get; set; } = string.Empty;
-    public Coordinate Coordinate { get; set; }
-    public SurfCondition SurfCondition { get; set; } = new SurfCondition();
+    [ObservableProperty]
+    private string _name = string.Empty;
+
+    [ObservableProperty]
+    private Coordinate _coordinate;
+
+    [ObservableProperty]
+    private SurfCondition _surfCondition = SurfCondition.Average;
+
+    public string SurfConditionColor => ((SurfConditionColor)(int)SurfCondition).ToString();
+
+    partial void OnSurfConditionChanged(SurfCondition value)
+    {
+        OnPropertyChanged(nameof(SurfConditionColor));
+    }
 
     public async Task UpdateSurfCondition()
     {
         Random _random = new Random();
-        
+
         try
         {
             var values = Enum.GetValues(typeof(SurfCondition));
             if (values != null && values.Length > 0)
             {
                 var condition = values.GetValue(_random.Next(values.Length));
-                if(condition != null)
-                {
-                    SurfCondition = (SurfCondition)condition;
-                }
-                else
-                {
-                    SurfCondition = SurfCondition.Average;
-                }
+                SurfCondition = condition != null ? (SurfCondition)condition : SurfCondition.Average;
             }
             else
             {
@@ -39,13 +45,5 @@ public class Beach : ValueObject
         }
 
         await Task.CompletedTask;
-    }
-
-    public string SurfConditionColor
-    {
-        get
-        {
-            return ((SurfConditionColor)(int)SurfCondition).ToString();
-        }
     }
 }

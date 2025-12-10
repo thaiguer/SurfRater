@@ -15,5 +15,7 @@
 					 IsVisible="{Binding IsBusy}"/>
 		<Label Content="{Binding Beach.Name}"/>
 		<Label Content="{Binding Beach.SurfConditionColor}"/>
+		<Label Content="{Binding Beach.SurfCondition}"/>
+		<Button Content="Update" Command="{Binding UpdateStatusCommand}"/>
 	</StackPanel>
 </UserControl>
