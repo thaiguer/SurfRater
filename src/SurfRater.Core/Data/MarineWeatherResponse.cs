@@ -4,7 +4,7 @@ namespace SurfRater.Core.Data;
 
 public class MarineWeatherResponse
 {
-    [JsonPropertyName("hourly")]
+    [JsonPropertyName("current")]
     public Hourly WeatherData { get; set; }
 }
 

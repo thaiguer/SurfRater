@@ -2,6 +2,7 @@
 
 public enum SurfConditionColor
 {
+    Grey = -1,
     DarkRed = 0,
     Firebrick = 1,
     Crimson = 2,

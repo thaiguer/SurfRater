@@ -1,6 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SurfRater.Core.Data;
 using SurfRater.Core.Enumerators;
 using SurfRater.Core.Model.ValueObjects;
+using System.Text;
+using System.Text.Json;
 
 namespace SurfRater.Core.Model.Entities;
 
@@ -24,24 +27,50 @@ public partial class Beach : ObservableObject
 
     public async Task UpdateSurfCondition()
     {
-        Random _random = new Random();
-
         try
         {
-            var values = Enum.GetValues(typeof(SurfCondition));
-            if (values != null && values.Length > 0)
+            var urlComposer = new StringBuilder();
+            urlComposer.Append($"https://marine-api.open-meteo.com/v1/marine?");
+            urlComposer.Append($"latitude={Coordinate.Latitude}");
+            urlComposer.Append($"&longitude={Coordinate.Longitude}");
+            urlComposer.Append($"&current=wave_height,wave_direction,wind_wave_direction&timezone=auto");
+
+            using var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync(urlComposer.ToString());
+
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var weatherData = JsonSerializer.Deserialize<MarineWeatherResponse>(response, options);
+
+            if (weatherData?.WeatherData == null)
             {
-                var condition = values.GetValue(_random.Next(values.Length));
-                SurfCondition = condition != null ? (SurfCondition)condition : SurfCondition.Average;
+                SurfCondition = SurfCondition.Unknown;
             }
             else
             {
+                if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 1.5)
+                {
+                    SurfCondition = SurfCondition.Perfect;
+                    return;
+                }
+
+                if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 1)
+                {
+                    SurfCondition = SurfCondition.Decent;
+                    return;
+                }
+
+                if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 0.5)
+                {
+                    SurfCondition = SurfCondition.Fair;
+                    return;
+                }
+
                 SurfCondition = SurfCondition.Average;
-            }
+            }            
         }
         catch
         {
-            SurfCondition = SurfCondition.Average;
+            SurfCondition = SurfCondition.Unknown;
         }
 
         await Task.CompletedTask;
