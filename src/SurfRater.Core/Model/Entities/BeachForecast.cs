@@ -1,5 +1,4 @@
-﻿using SurfRater.Core.Enumerators;
-using SurfRater.Core.Model.ValueObjects;
+﻿using SurfRater.Core.Model.ValueObjects;
 using System.Text;
 using System.Text.Json;
 
@@ -8,40 +7,30 @@ namespace SurfRater.Core.Model.Entities;
 public class BeachForecast
 {
     public Coordinate Coordinate { get; }
-    public Forecast Forecast { get; private set; }
+    public List<OneHourForecast> WholeDayForecast { get; private set; }
 
     public BeachForecast(Coordinate coordinate)
     {
         Coordinate = coordinate;
-        Forecast = GetForecast();
     }
 
-    public SurfCondition GetNextHourSurfCondition()
+    public async void GetWholedaySurfCondition()
     {
-        //if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 1.5)
-        //{
-        //    SurfCondition = SurfCondition.Perfect;
-        //    return;
-        //}
+        var getOpenMeteoForecastResponse = await GetOpenMeteoForecastResponse();
+        var weatherData = JsonSerializer.Deserialize<ValueObjects.OpenMeteoForecast.WeatherData>(getOpenMeteoForecastResponse);
 
-        //if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 1)
-        //{
-        //    SurfCondition = SurfCondition.Decent;
-        //    return;
-        //}
+        var getOpenMeteoMarineResponse = await GetOpenMeteoMarineResponse();
+        var marineData = JsonSerializer.Deserialize<ValueObjects.OpenMeteoMarine.MarineData>(getOpenMeteoMarineResponse);
 
-        //if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 0.5)
-        //{
-        //    SurfCondition = SurfCondition.Fair;
-        //    return;
-        //}
+        var wholeDayForecast = new List<OneHourForecast>();
 
-        return SurfCondition.Unknown;
-    }
+        for(int i = 0; i < 12; i++)
+        {
+            //string time = 
+            //weatherData.Hourly.WindDirection10m
 
-    private Forecast GetForecast()
-    {
-        return new Forecast();
+            //var oneHourForecast = new OneHourForecast();
+        }
     }
 
     public async Task<string> GetOpenMeteoForecastResponse()
@@ -57,7 +46,7 @@ public class BeachForecast
         using var httpClient = new HttpClient();
         string response = await httpClient.GetStringAsync(urlComposer.ToString()) ?? string.Empty;
         return response;
-        var weatherData = JsonSerializer.Deserialize<ValueObjects.OpenMeteoForecast.WeatherData>(response);
+        
     }
 
     public async Task<string> GetOpenMeteoMarineResponse()
@@ -74,6 +63,5 @@ public class BeachForecast
         var response = await httpClient.GetStringAsync(urlComposer.ToString());
 
         return response;
-        var weatherData = JsonSerializer.Deserialize<ValueObjects.OpenMeteoMarine.MarineData>(response);
     }
 }

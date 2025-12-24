@@ -15,7 +15,7 @@ public class OneHourForecast : ValueObject
         int waveDirection,
         double wavePeriod)
     {
-        Time = DateTime.Now;
+        Time = DateTime.Parse(time);
         Temperature2m = new SurfParameterValue(temperature2m, 0);
         WindSpeed10m = new SurfParameterValue(windSpeed10m, 0);
         WindDirection10m = new SurfParameterValue(windDirection10m, 0);

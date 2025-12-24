@@ -27,7 +27,7 @@ public partial class Beach : ObservableObject
         try
         {
             var beachForecast = new BeachForecast(Coordinate);
-            SurfCondition = beachForecast.GetNextHourSurfCondition();
+            //SurfCondition = beachForecast.GetNextHourSurfCondition();
         }
         catch
         {
