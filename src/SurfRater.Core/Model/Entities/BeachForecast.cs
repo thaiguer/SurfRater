@@ -8,10 +8,12 @@ namespace SurfRater.Core.Model.Entities;
 public class BeachForecast
 {
     public Coordinate Coordinate { get; }
+    public Forecast Forecast { get; private set; }
 
     public BeachForecast(Coordinate coordinate)
     {
         Coordinate = coordinate;
+        Forecast = GetForecast();
     }
 
     public SurfCondition GetNextHourSurfCondition()
@@ -35,6 +37,11 @@ public class BeachForecast
         //}
 
         return SurfCondition.Unknown;
+    }
+
+    private Forecast GetForecast()
+    {
+        return new Forecast();
     }
 
     public async Task<string> GetOpenMeteoForecastResponse()
