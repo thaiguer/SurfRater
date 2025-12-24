@@ -1,2 +1,0 @@
-https://open-meteo.com/
-https://open-meteo.com/en/docs/marine-weather-api?hourly=wave_height,wave_direction,swell_wave_height,swell_wave_direction#hourly_weather_variables

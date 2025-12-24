@@ -1,9 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using SurfRater.Core.Data;
 using SurfRater.Core.Enumerators;
 using SurfRater.Core.Model.ValueObjects;
-using System.Text;
-using System.Text.Json;
 
 namespace SurfRater.Core.Model.Entities;
 
@@ -29,44 +26,22 @@ public partial class Beach : ObservableObject
     {
         try
         {
-            var urlComposer = new StringBuilder();
-            urlComposer.Append($"https://marine-api.open-meteo.com/v1/marine?");
-            urlComposer.Append($"latitude={Coordinate.Latitude}");
-            urlComposer.Append($"&longitude={Coordinate.Longitude}");
-            urlComposer.Append($"&current=wave_height,wave_direction,wind_wave_direction&timezone=auto");
+            //var beachForecast = new BeachForecast();
 
-            using var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync(urlComposer.ToString());
 
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            var weatherData = JsonSerializer.Deserialize<MarineWeatherResponse>(response, options);
 
-            if (weatherData?.WeatherData == null)
-            {
-                SurfCondition = SurfCondition.Unknown;
-            }
-            else
-            {
-                if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 1.5)
-                {
-                    SurfCondition = SurfCondition.Perfect;
-                    return;
-                }
 
-                if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 1)
-                {
-                    SurfCondition = SurfCondition.Decent;
-                    return;
-                }
 
-                if (weatherData.WeatherData.WaveHeight.FirstOrDefault() > 0.5)
-                {
-                    SurfCondition = SurfCondition.Fair;
-                    return;
-                }
+            //if (weatherData?.WeatherData == null)
+            //{
+            //    SurfCondition = SurfCondition.Unknown;
+            //}
+            //else
+            //{
+            //    SurfCondition = beachForecast.GetNextHourSurfCondition();
+            //}
 
-                SurfCondition = SurfCondition.Average;
-            }            
+            SurfCondition = SurfCondition.Unknown;
         }
         catch
         {
