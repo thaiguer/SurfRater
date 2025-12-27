@@ -1,4 +1,5 @@
-﻿using SurfRater.Core.Model.Entities;
+﻿using Newtonsoft.Json.Bson;
+using SurfRater.Core.Model.Entities;
 using SurfRater.Core.Model.ValueObjects;
 
 namespace SurfRater.Core.Tests;
@@ -30,5 +31,13 @@ public class OpenMeteoForecastAndMarineTests
         Assert.IsNotNull(openMeteoForecastResponse);
         Assert.IsFalse(string.IsNullOrEmpty(result));
         Assert.IsFalse(string.IsNullOrWhiteSpace(result));
+    }
+
+    [TestMethod]
+    public async Task WholeDayForecast()
+    {
+        var beachForecast = new BeachForecast(_lagunaCoordinate);
+        await beachForecast.GetWholedayForecast();
+        var wholeDayForecast = beachForecast.WholeDayForecast;
     }
 }

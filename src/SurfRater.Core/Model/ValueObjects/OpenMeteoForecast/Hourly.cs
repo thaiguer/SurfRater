@@ -14,7 +14,7 @@ public class Hourly
     public List<double> WindSpeed10m { get; set; }
 
     [JsonPropertyName("wind_direction_10m")]
-    public List<int> WindDirection10m { get; set; }
+    public List<double> WindDirection10m { get; set; }
 
     [JsonPropertyName("rain")]
     public List<double> Rain { get; set; }

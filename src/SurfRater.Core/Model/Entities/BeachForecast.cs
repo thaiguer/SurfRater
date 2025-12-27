@@ -7,14 +7,14 @@ namespace SurfRater.Core.Model.Entities;
 public class BeachForecast
 {
     public Coordinate Coordinate { get; }
-    public List<OneHourForecast> WholeDayForecast { get; private set; }
+    public List<OneHourForecast> WholeDayForecast { get; private set; } = new List<OneHourForecast>();
 
     public BeachForecast(Coordinate coordinate)
     {
         Coordinate = coordinate;
     }
 
-    public async void GetWholedayForecast()
+    public async Task GetWholedayForecast()
     {
         var getOpenMeteoForecastResponse = await GetOpenMeteoForecastResponse();
         var weatherData = JsonSerializer.Deserialize<ValueObjects.OpenMeteoForecast.WeatherData>(getOpenMeteoForecastResponse);
@@ -22,21 +22,21 @@ public class BeachForecast
         var getOpenMeteoMarineResponse = await GetOpenMeteoMarineResponse();
         var marineData = JsonSerializer.Deserialize<ValueObjects.OpenMeteoMarine.MarineData>(getOpenMeteoMarineResponse);
 
-        var wholeDayForecast = new List<OneHourForecast>();
-
         if (weatherData == null) return;
         if (marineData == null) return;
+
+        WholeDayForecast.Clear();
 
         for (int i = 0; i < 12; i++)
         {
             string time = weatherData.Hourly.Time[i];
             double temperature2m = weatherData.Hourly.Temperature2m[i];
             double windSpeed10m = weatherData.Hourly.WindSpeed10m[i];
-            int windDirection10m = weatherData.Hourly.WindDirection10m[i];
+            double windDirection10m = weatherData.Hourly.WindDirection10m[i];
             double rain = weatherData.Hourly.Rain[i];
             double windGusts10m = weatherData.Hourly.WindGusts10m[i];
             double waveHeight = marineData.Hourly.WaveHeight[i];
-            int waveDirection = marineData.Hourly.WaveDirection[i];
+            double waveDirection = marineData.Hourly.WaveDirection[i];
             double wavePeriod = marineData.Hourly.WavePeriod[i];
 
             var oneHourForecast = new OneHourForecast(time,
@@ -49,7 +49,7 @@ public class BeachForecast
                 waveDirection,
                 wavePeriod);
 
-            wholeDayForecast.Add(oneHourForecast);
+            WholeDayForecast.Add(oneHourForecast);
         }
     }
 

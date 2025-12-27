@@ -14,7 +14,7 @@ public class WeatherData
     public double GenerationTimeMs { get; set; }
 
     [JsonPropertyName("utc_offset_seconds")]
-    public int UtcOffsetSeconds { get; set; }
+    public double UtcOffsetSeconds { get; set; }
 
     [JsonPropertyName("timezone")]
     public string Timezone { get; set; }
@@ -23,7 +23,7 @@ public class WeatherData
     public string TimezoneAbbreviation { get; set; }
 
     [JsonPropertyName("elevation")]
-    public int Elevation { get; set; }
+    public double Elevation { get; set; }
 
     [JsonPropertyName("hourly_units")]
     public HourlyUnits HourlyUnits { get; set; }

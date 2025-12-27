@@ -8,11 +8,11 @@ public class OneHourForecast : ValueObject
         string time,
         double temperature2m,
         double windSpeed10m,
-        int windDirection10m,
+        double windDirection10m,
         double rain,
         double windGusts10m,
         double waveHeight,
-        int waveDirection,
+        double waveDirection,
         double wavePeriod)
     {
         Time = DateTime.Parse(time);

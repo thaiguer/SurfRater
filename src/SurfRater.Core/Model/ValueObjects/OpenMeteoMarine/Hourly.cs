@@ -11,7 +11,7 @@ public class Hourly
     public List<double> WaveHeight { get; set; }
 
     [JsonPropertyName("wave_direction")]
-    public List<int> WaveDirection { get; set; }
+    public List<double> WaveDirection { get; set; }
 
     [JsonPropertyName("wave_period")]
     public List<double> WavePeriod { get; set; }
