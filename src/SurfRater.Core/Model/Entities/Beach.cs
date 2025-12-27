@@ -29,6 +29,17 @@ public partial class Beach : ObservableObject
             var beachForecast = new BeachForecast(Coordinate);
             await beachForecast.GetWholedayForecast();
             var wholeDayForecast = beachForecast.WholeDayForecast;
+
+            var nextHour = wholeDayForecast.FirstOrDefault();
+
+            if(nextHour == null)
+            {
+                SurfCondition = SurfCondition.Unknown;
+                return;
+            }
+            
+            var conditionCalculator = new ConditionCalculator();
+            SurfCondition = conditionCalculator.GetSurfCondition(nextHour);
         }
         catch
         {

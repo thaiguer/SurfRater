@@ -1,6 +1,6 @@
 ﻿using SurfRater.Core.Model.Entities;
 
-namespace SurfRater.Core;
+namespace SurfRater.Core.Model;
 
 public class ConditionsUpdater
 {
