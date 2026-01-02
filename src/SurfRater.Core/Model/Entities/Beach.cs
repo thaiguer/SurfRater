@@ -6,6 +6,12 @@ namespace SurfRater.Core.Model.Entities;
 
 public partial class Beach : ObservableObject
 {
+    public Beach(Coordinate coordinate)
+    {
+        Coordinate = coordinate;
+        BeachForecast = new BeachForecast(coordinate);
+    }
+    
     [ObservableProperty]
     private string _name = string.Empty;
 
@@ -14,6 +20,9 @@ public partial class Beach : ObservableObject
 
     [ObservableProperty]
     private SurfCondition _surfCondition = SurfCondition.Average;
+
+    [ObservableProperty]
+    private BeachForecast _beachForecast;
 
     public string SurfConditionColor => ((SurfConditionColor)(int)SurfCondition).ToString();
 
@@ -26,9 +35,8 @@ public partial class Beach : ObservableObject
     {
         try
         {
-            var beachForecast = new BeachForecast(Coordinate);
-            await beachForecast.GetWholedayForecast();
-            var wholeDayForecast = beachForecast.WholeDayForecast;
+            await BeachForecast.GetWholedayForecast();
+            var wholeDayForecast = BeachForecast.WholeDayForecast;
 
             var nextHour = wholeDayForecast.FirstOrDefault();
 

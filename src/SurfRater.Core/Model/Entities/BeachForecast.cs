@@ -1,10 +1,11 @@
-﻿using SurfRater.Core.Model.ValueObjects;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SurfRater.Core.Model.ValueObjects;
 using System.Text;
 using System.Text.Json;
 
 namespace SurfRater.Core.Model.Entities;
 
-public class BeachForecast
+public class BeachForecast : ObservableObject
 {
     public Coordinate Coordinate { get; }
     public List<OneHourForecast> WholeDayForecast { get; private set; } = new List<OneHourForecast>();

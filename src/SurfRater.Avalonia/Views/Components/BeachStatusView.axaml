@@ -14,6 +14,11 @@
 		<ProgressBar IsIndeterminate="{Binding IsBusy}"
 					 IsVisible="{Binding IsBusy}"/>
 		<Label Content="{Binding Beach.Name}"/>
+		<TextBox Text="{Binding Beach.Coordinate.LatitudeToText}" IsReadOnly="True"/>
+		<TextBox Text="{Binding Beach.Coordinate.LongitudeToText}" IsReadOnly="True"/>
+
+		
+
 		<Label Content="{Binding Beach.SurfConditionColor}"/>
 		<Label Content="{Binding Beach.SurfCondition}"/>
 		<Button Content="Update" Command="{Binding UpdateStatusCommand}"/>

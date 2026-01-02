@@ -19,7 +19,6 @@ public partial class BeachStatusViewModel : ViewModelBase
     [RelayCommand]
     private async Task UpdateStatus()
     {
-        Beach.Coordinate = new Core.Model.ValueObjects.Coordinate(-28.48871042016006, -48.74739086392232);
         await Beach.UpdateSurfCondition();
     }
 }

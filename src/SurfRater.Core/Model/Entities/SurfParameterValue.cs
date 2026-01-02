@@ -13,4 +13,27 @@ public class SurfParameterValue(
             return Math.Min(CurrentValue, IdealValue) / Math.Max(CurrentValue, IdealValue);
         }
     }
+    //public double Bigger
+    //{
+    //    get
+    //    {
+
+    //    }
+    //}
+
+    //public double Lower
+    //{
+    //    get
+    //    {
+
+    //    }
+    //}
+
+    //public double Between
+    //{
+    //    get
+    //    {
+
+    //    }
+    //}
 }

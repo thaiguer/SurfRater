@@ -10,4 +10,20 @@ public sealed class Coordinate : ValueObject
         Latitude = latitude;
         Longitude = longitude;
     }
+
+    public string LatitudeToText
+    {
+        get
+        {
+            return $"Latitude: {Latitude}";
+        }
+    }
+
+    public string LongitudeToText
+    {
+        get
+        {
+            return $"Longitude: {Longitude}";
+        }
+    }
 }
