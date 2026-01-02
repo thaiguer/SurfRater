@@ -9,10 +9,46 @@ public class BeachForecast : ObservableObject
 {
     public Coordinate Coordinate { get; }
     public List<OneHourForecast> WholeDayForecast { get; private set; } = new List<OneHourForecast>();
-
+    public OneHourForecast NextHourForecast {  get; private set; }
     public BeachForecast(Coordinate coordinate)
     {
         Coordinate = coordinate;
+        NextHourForecast = GetNextHourForecast();
+    }
+
+    public OneHourForecast GetNextHourForecast()
+    {
+        var now = DateTime.Now;
+
+        string time = DateTime.MinValue.ToString();
+        double temperature2m = -300;
+        double windSpeed10m = -1;
+        double windDirection10m = -1;
+        double rain = -1;
+        double windGusts10m = -1;
+        double waveHeight = -1;
+        double waveDirection = -1;
+        double wavePeriod = -1;
+
+        var emptyForecast = new OneHourForecast(time,
+            temperature2m,
+            windSpeed10m,
+            windDirection10m,
+            rain,
+            windGusts10m,
+            waveHeight,
+            waveDirection,
+            wavePeriod);
+
+        try
+        {
+            var nextHourForecast = WholeDayForecast.FirstOrDefault(f => f.Time > now);
+            return nextHourForecast ?? emptyForecast;
+        }
+        catch
+        {
+            return emptyForecast;
+        }
     }
 
     public async Task GetWholedayForecast()
@@ -52,6 +88,8 @@ public class BeachForecast : ObservableObject
 
             WholeDayForecast.Add(oneHourForecast);
         }
+
+        NextHourForecast = GetNextHourForecast();
     }
 
     public async Task<string> GetOpenMeteoForecastResponse()
