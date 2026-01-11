@@ -9,7 +9,6 @@ public partial class Beach : ObservableObject
     public Beach(Coordinate coordinate)
     {
         Coordinate = coordinate;
-        SurfCondition = SurfCondition.Unknown;
         BeachForecast = new BeachForecast(coordinate);
     }
     
