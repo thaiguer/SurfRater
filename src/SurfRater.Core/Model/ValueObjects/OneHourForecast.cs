@@ -1,8 +1,9 @@
-﻿using SurfRater.Core.Model.Entities;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SurfRater.Core.Model.Entities;
 
 namespace SurfRater.Core.Model.ValueObjects;
 
-public class OneHourForecast : ValueObject
+public class OneHourForecast : ObservableObject
 {
     public OneHourForecast(
         string time,

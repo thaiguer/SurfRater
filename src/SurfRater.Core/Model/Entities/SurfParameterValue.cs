@@ -1,8 +1,10 @@
-﻿namespace SurfRater.Core.Model.Entities;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace SurfRater.Core.Model.Entities;
 
 public class SurfParameterValue(
     double currentValue,
-    double idealValue)
+    double idealValue) : ObservableObject
 {
     public double CurrentValue { get; } = currentValue;
     public double IdealValue { get; } = idealValue;
