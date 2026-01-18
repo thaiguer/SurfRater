@@ -25,7 +25,7 @@ public class OneHourForecast : ValueObject
         WaveDirection = new SurfParameterValue(waveDirection, 0);
         WavePeriod = new SurfParameterValue(wavePeriod, 0);
     }
-
+    
     public DateTime Time { get; }
     public SurfParameterValue Temperature2m { get; }
     public SurfParameterValue WindSpeed10m { get; }
@@ -35,4 +35,68 @@ public class OneHourForecast : ValueObject
     public SurfParameterValue WaveHeight { get; }
     public SurfParameterValue WaveDirection { get; }
     public SurfParameterValue WavePeriod { get; }
+
+    public string Temperature2mToText
+    {
+        get
+        {
+            return $"Temperature: {Temperature2m.CurrentValue}";
+        }
+    }
+
+    public string WindSpeed10mToText
+    {
+        get
+        {
+            return $"Wind Speed: {WindSpeed10m.CurrentValue}";
+        }
+    }
+
+    public string WindDirection10mToText
+    {
+        get
+        {
+            return $"Wind Direction: {WindDirection10m.CurrentValue}";
+        }
+    }
+
+    public string RainToText
+    {
+        get
+        {
+            return $"Rain: {Rain.CurrentValue}";
+        }
+    }
+
+    public string WindGusts10mToText
+    {
+        get
+        {
+            return $"Wind Gusts: {WindGusts10m.CurrentValue}";
+        }
+    }
+
+    public string WaveHeightToText
+    {
+        get
+        {
+            return $"Wave Height: {WaveHeight.CurrentValue}";
+        }
+    }
+
+    public string WaveDirectionToText
+    {
+        get
+        {
+            return $"Wave Direction: {WaveDirection.CurrentValue}";
+        }
+    }
+
+    public string WavePeriodToText
+    {
+        get
+        {
+            return $"Wave Period: {WavePeriod.CurrentValue}";
+        }
+    }
 }
