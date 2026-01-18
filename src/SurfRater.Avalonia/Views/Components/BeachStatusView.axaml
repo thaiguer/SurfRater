@@ -18,10 +18,10 @@
 		<TextBox Text="{Binding Beach.Coordinate.LongitudeToText}" IsReadOnly="True"/>
 
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.Time}"/>
-		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.Temperature2m}"/>
-		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveDirection}"/>
-		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveHeight}"/>
-		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WavePeriod}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.Temperature2mToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveDirectionToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveHeightToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WavePeriodToText}"/>
 
 		<Label Content="{Binding Beach.SurfConditionColor}"/>
 		<Label Content="{Binding Beach.SurfCondition}"/>
