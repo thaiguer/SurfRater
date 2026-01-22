@@ -23,7 +23,7 @@
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveHeightToText}"/>
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WavePeriodToText}"/>
 
-		<Label Content="{Binding Beach.SurfConditionColor}"/>
+		<Ellipse HorizontalAlignment="Left" Width="20" Height="20" Fill="{Binding Beach.SurfConditionColor}"/>
 		<Label Content="{Binding Beach.SurfCondition}"/>
 		<Button Content="Update" Command="{Binding UpdateStatusCommand}"/>
 	</StackPanel>
