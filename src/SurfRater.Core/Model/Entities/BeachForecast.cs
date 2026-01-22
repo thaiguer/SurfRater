@@ -5,11 +5,17 @@ using System.Text.Json;
 
 namespace SurfRater.Core.Model.Entities;
 
-public class BeachForecast : ObservableObject
+public partial class BeachForecast : ObservableObject
 {
-    public Coordinate Coordinate { get; }
-    public List<OneHourForecast> WholeDayForecast { get; private set; } = new List<OneHourForecast>();
-    public OneHourForecast NextHourForecast {  get; private set; }
+    [ObservableProperty]
+    public Coordinate _coordinate;
+
+    [ObservableProperty]
+    public List<OneHourForecast> _wholeDayForecast = new List<OneHourForecast>();
+
+    [ObservableProperty]
+    public OneHourForecast _nextHourForecast;
+    
     public BeachForecast(Coordinate coordinate)
     {
         Coordinate = coordinate;
@@ -42,7 +48,7 @@ public class BeachForecast : ObservableObject
 
         try
         {
-            var nextHourForecast = WholeDayForecast.FirstOrDefault(f => f.Time > now);
+            var nextHourForecast = WholeDayForecast.FirstOrDefault();
             return nextHourForecast ?? emptyForecast;
         }
         catch

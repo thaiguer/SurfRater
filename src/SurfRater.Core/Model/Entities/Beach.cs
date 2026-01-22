@@ -39,7 +39,6 @@ public partial class Beach : ObservableObject
             var wholeDayForecast = BeachForecast.WholeDayForecast;
 
             var nextHour = wholeDayForecast.FirstOrDefault();
-
             if(nextHour == null)
             {
                 SurfCondition = SurfCondition.Unknown;
