@@ -8,7 +8,7 @@ public class HourlyTask : IHourlyTask
     {
         try
         {
-            NotificationHelper.Show("Hourly Task", "Background Job " + DateTime.Now.ToString());
+            NotificationHelper.Show("Hourly Task", "Background Job 1" + DateTime.Now.ToString());
         }
         catch
         {
