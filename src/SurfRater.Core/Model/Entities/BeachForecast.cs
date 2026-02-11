@@ -35,6 +35,7 @@ public partial class BeachForecast : ObservableObject
         double waveHeight = -1;
         double waveDirection = -1;
         double wavePeriod = -1;
+        double cloudCover = -1;
 
         var emptyForecast = new OneHourForecast(time,
             temperature2m,
@@ -44,7 +45,8 @@ public partial class BeachForecast : ObservableObject
             windGusts10m,
             waveHeight,
             waveDirection,
-            wavePeriod);
+            wavePeriod,
+            cloudCover);
 
         try
         {
@@ -81,6 +83,7 @@ public partial class BeachForecast : ObservableObject
             double waveHeight = marineData.Hourly.WaveHeight[i];
             double waveDirection = marineData.Hourly.WaveDirection[i];
             double wavePeriod = marineData.Hourly.WavePeriod[i];
+            double cloudCover = -1;// weatherData.Hourly.CloudCover[i];
 
             var oneHourForecast = new OneHourForecast(time,
                 temperature2m,
@@ -90,7 +93,8 @@ public partial class BeachForecast : ObservableObject
                 windGusts10m,
                 waveHeight,
                 waveDirection,
-                wavePeriod);
+                wavePeriod,
+                cloudCover);
 
             WholeDayForecast.Add(oneHourForecast);
         }
@@ -110,8 +114,7 @@ public partial class BeachForecast : ObservableObject
 
         using var httpClient = new HttpClient();
         string response = await httpClient.GetStringAsync(urlComposer.ToString()) ?? string.Empty;
-        return response;
-        
+        return response;   
     }
 
     public async Task<string> GetOpenMeteoMarineResponse()

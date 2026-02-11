@@ -18,10 +18,18 @@
 		<TextBox Text="{Binding Beach.Coordinate.LongitudeToText}" IsReadOnly="True"/>
 
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.Time}"/>
-		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.Temperature2mToText}"/>
+		
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WindSpeed10mToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WindGusts10mToText}"/>
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveDirectionToText}"/>
+
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveHeightToText}"/>
 		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WavePeriodToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.WaveDirectionToText}"/>
+
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.Temperature2mToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.CloudCoverTotalToText}"/>
+		<Label Content="{Binding Beach.BeachForecast.NextHourForecast.RainToText}"/>
 
 		<Ellipse HorizontalAlignment="Left" Width="20" Height="20" Fill="{Binding Beach.SurfConditionColor}"/>
 		<Label Content="{Binding Beach.SurfCondition}"/>

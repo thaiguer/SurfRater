@@ -14,7 +14,8 @@ public class OneHourForecast : ObservableObject
         double windGusts10m,
         double waveHeight,
         double waveDirection,
-        double wavePeriod)
+        double wavePeriod,
+        double cloudCoverTotal)
     {
         Time = DateTime.Parse(time);
         Temperature2m = new SurfParameterValue(temperature2m, 0);
@@ -25,6 +26,7 @@ public class OneHourForecast : ObservableObject
         WaveHeight = new SurfParameterValue(waveHeight, 0);
         WaveDirection = new SurfParameterValue(waveDirection, 0);
         WavePeriod = new SurfParameterValue(wavePeriod, 0);
+        CloudCoverTotal = new SurfParameterValue(cloudCoverTotal, 0);
     }
     
     public DateTime Time { get; }
@@ -36,6 +38,7 @@ public class OneHourForecast : ObservableObject
     public SurfParameterValue WaveHeight { get; }
     public SurfParameterValue WaveDirection { get; }
     public SurfParameterValue WavePeriod { get; }
+    public SurfParameterValue CloudCoverTotal { get; }
 
     public string Temperature2mToText
     {
@@ -98,6 +101,14 @@ public class OneHourForecast : ObservableObject
         get
         {
             return $"Wave Period: {WavePeriod.CurrentValue}";
+        }
+    }
+
+    public string CloudCoverTotalToText
+    {
+        get
+        {
+            return $"Cloud Cover: {CloudCoverTotal.CurrentValue}";
         }
     }
 }

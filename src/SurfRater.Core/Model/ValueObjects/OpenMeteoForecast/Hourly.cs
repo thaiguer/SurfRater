@@ -21,4 +21,7 @@ public class Hourly
 
     [JsonPropertyName("wind_gusts_10m")]
     public List<double> WindGusts10m { get; set; }
+
+    [JsonPropertyName("cloud_cover")]
+    public Hourly CloudCover { get; set; }
 }
