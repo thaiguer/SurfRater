@@ -44,7 +44,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Temperature: {Temperature2m.CurrentValue}";
+            return $"Temperature (°C): {Temperature2m.CurrentValue}";
         }
     }
 
@@ -52,7 +52,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Wind Speed: {WindSpeed10m.CurrentValue}";
+            return $"Wind Speed (km/h): {WindSpeed10m.CurrentValue}";
         }
     }
 
@@ -60,7 +60,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Wind Direction: {WindDirection10m.CurrentValue}";
+            return $"Wind Direction (0-360): {WindDirection10m.CurrentValue}";
         }
     }
 
@@ -68,7 +68,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Rain: {Rain.CurrentValue}";
+            return $"Rain (mm): {Rain.CurrentValue}";
         }
     }
 
@@ -76,7 +76,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Wind Gusts: {WindGusts10m.CurrentValue}";
+            return $"Wind Gusts (km/h): {WindGusts10m.CurrentValue}";
         }
     }
 
@@ -84,7 +84,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Wave Height: {WaveHeight.CurrentValue}";
+            return $"Wave Height (m): {WaveHeight.CurrentValue}";
         }
     }
 
@@ -92,7 +92,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Wave Direction: {WaveDirection.CurrentValue}";
+            return $"Wave Direction (0-360): {WaveDirection.CurrentValue}";
         }
     }
 
@@ -100,7 +100,7 @@ public class OneHourForecast : ObservableObject
     {
         get
         {
-            return $"Wave Period: {WavePeriod.CurrentValue}";
+            return $"Wave Period (s): {WavePeriod.CurrentValue}";
         }
     }
 
